@@ -1,0 +1,12 @@
+.Profile {
+    color: var(--white);
+    background-color: var(--base-color);
+}
+
+.Profile h1 {
+    color: var(--white);
+}
+
+.Profile section {
+    margin-top: 12px;
+}
