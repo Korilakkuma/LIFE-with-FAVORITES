@@ -5,7 +5,7 @@ module.exports = {
   entry: ['./src/main.js', './src/main.css'],
   output: {
     filename: 'app.js',
-    path: `${__dirname}`
+    path: `${__dirname}/assets/`
   },
   module: {
     rules: [
@@ -37,7 +37,8 @@ module.exports = {
       }
     }),
     new ExtracktTextPlugin({
-      filename: './app.css'
+      filename: 'app.css',
+      path: `${__dirname}/assets/`
     })
   ],
   devtool: 'source-map'
