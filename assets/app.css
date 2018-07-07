@@ -1,0 +1,410 @@
+@charset "UTF-8";
+
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+dt,
+dd,
+table,
+th,
+td,
+form,
+fieldset,
+header,
+main,
+section,
+article,
+aside,
+footer,
+figure,
+figcaption,
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+html {
+    /*
+    overflow: scroll;
+    overflow: -moz-scrollbars-vertical;
+    overflow-x: scroll;
+    */
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+p,
+li,
+dt,
+dd,
+th,
+td,
+pre {
+    -ms-line-break: strict;
+    line-break: strict;
+    -ms-word-break: break-strict;
+    word-break: break-strict;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    border: none;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+:root {
+    --base-font-size: 16px;
+    --base-color: #ff1493;
+    --assort-color: #ffa0e1;
+    --white: #fff;
+    --gray-lightest: #fafafa;
+    --gray-lighter: #ccc;
+    --gray-light: #999;
+    --gray: #666;
+    --gray-deep: #333;
+    --black-light: #212121;
+    --black: #000;
+    --transparent: rgba(0, 0, 0, 0);
+    --desktop-max-width: 1280px;
+}
+
+.text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.image-link:hover,
+.image-link:focus,
+.image-link:active {
+    text-decoration: none;
+}
+
+.list-marker li,
+.list-marker dt {
+    margin: 16px 0;
+}
+
+.list-marker li::before,
+.list-marker dt::before {
+    content: "";
+    display: inline-block;
+    margin-right: 8px;
+    border-top: 10px solid transparent;
+    border-left: 15px solid var(--base-color);
+    border-bottom: 10px solid transparent;
+    vertical-align: -4px;
+}
+
+.list-marker.-white li::before,
+.list-marker.-white dt::before {
+    content: "";
+    display: inline-block;
+    margin-right: 8px;
+    border-top: 10px solid transparent;
+    border-left: 15px solid var(--white);
+    border-bottom: 10px solid transparent;
+    vertical-align: -4px;
+}
+
+body {
+    font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", Meiryo, Osaka, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", "MS PGothic", sans-serif;
+    font-size: var(--base-font-size);
+    line-height: 1.5;
+    min-width: 320px;
+}
+
+header,
+footer,
+main > section {
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.aligner {
+    margin: 0 auto;
+    max-width: var(--desktop-max-width);
+    width: 90%;
+}
+
+.aligner > h1,
+h2 {
+    font-family: "Carrois Gothic SC", sans-serif;
+    letter-spacing: 0.25rem;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.aligner > h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+a {
+    color: var(--base-color);
+    text-decoration: none;
+    transition: color 0.6s ease;
+}
+
+a:hover,
+a:active {
+    color: var(--assort-color);
+}
+
+.Footer {
+    color: var(--white);
+    background-color: var(--base-color);
+}
+
+.Footer h1 {
+    color: var(--white);
+}
+
+.Header {
+    color: var(--base-color);
+    background-color: var(--white);
+}
+
+.Header .aligner {
+    text-align: center;
+}
+
+.Header h1 {
+    margin-top: -4vh;
+    font-size: 4rem;
+}
+
+.Header h1 > span {
+    font-size: 3rem;
+}
+
+.Header__sns {
+    margin-top: 12px;
+}
+
+.Header__sns > li,
+.Header__sns > li > a {
+    display: inline-block;
+}
+
+.Header__sns > li:not(:first-child) {
+    margin-left: 24px;
+}
+
+.Music {
+    color: var(--gray);
+    background-color: var(--white);
+}
+
+.Music h1 {
+    color: var(--base-color);
+}
+
+.Music__carousel {
+    margin: 12px auto 0;
+    width: 840px;
+    overflow-x: hidden;
+}
+
+.Music__carousel > ol {
+    -webkit-display: flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    transition: transform 1.5s ease-in-out 0s;
+}
+
+.Music__carousel > ol > li {
+    display: block;
+}
+
+.Music__carouselSelector {
+    -webkit-display: flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.Music__carouselSelector > li {
+    display: inline-block;
+    margin-left: 4px;
+}
+
+.Music__carouselSelector > li > button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    background-color: var(--assort-color);
+    border-radius: 8px;
+}
+
+.Music__carouselSelector > li > button:focus {
+    outline: 2px dotted var(--assort-color);
+}
+
+.Music__carouselSelector > li > button.-active {
+    background-color: var(--base-color);
+}
+
+.Portfolio {
+    color: var(--gray);
+    background-color: var(--white);
+}
+
+.Portfolio h1 {
+    color: var(--base-color);
+}
+
+.Portfolio dl {
+    margin-top: 12px;
+}
+
+.Portfolio__carousel {
+    margin: 12px auto 0;
+    width: 800px;
+    overflow-x: hidden;
+}
+
+.Portfolio__carousel > ol {
+    -webkit-display: flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    transition: transform 1.5s ease-in-out 0s, order 1.5s ease-in-out 0s;
+}
+
+.Portfolio__carousel > ol > li {
+    display: block;
+}
+
+.Portfolio__carousel > ol > li div {
+    border: 1px solid var(--base-color);
+    width: 400px;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+}
+
+.Portfolio__carouselSelector {
+    -webkit-display: flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.Portfolio__carouselSelector > li {
+    display: inline-block;
+    margin-left: 4px;
+}
+
+.Portfolio__carouselSelector > li > button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    background-color: var(--assort-color);
+    border-radius: 8px;
+}
+
+.Portfolio__carouselSelector > li > button:focus {
+    outline: 2px dotted var(--assort-color);
+}
+
+.Portfolio__carouselSelector > li > button.-active {
+    background-color: var(--base-color);
+}
+
+.Profile {
+    color: var(--white);
+    background-color: var(--base-color);
+}
+
+.Profile h1 {
+    color: var(--white);
+}
+
+.Profile section {
+    margin-top: 12px;
+}
+
+.Skills {
+    color: var(--white);
+    background-color: var(--base-color);
+}
+
+.Skills h1 {
+    color: var(--white);
+}
+
+.Skills ul {
+    margin-top: 12px;
+}
+
+
+/*# sourceMappingURL=app.css.map*/
