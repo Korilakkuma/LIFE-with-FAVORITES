@@ -1,0 +1,12 @@
+.Skills {
+    color: var(--white);
+    background-color: var(--base-color);
+}
+
+.Skills h1 {
+    color: var(--white);
+}
+
+.Skills ul {
+    margin-top: 12px;
+}
