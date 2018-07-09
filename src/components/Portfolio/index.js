@@ -7,103 +7,123 @@ export default class Portfolio extends React.Component {
 
     constructor(props) {
         super(props);
-    }
-
-    shouldComponentUpdate() {
-        return false;
-    }
-
-    render() {
-        return (
-            <section className={Portfolio.CLASS_NAME}>
-                <div className="aligner">
-                    <h1>PORTFOLIO</h1>
-                    <dl className="list-marker">
-                        <dt><a href="https://github.com/Korilakkuma/XSound" target="_blank" rel="noopener noreferrer">XSound</a></dt>
-                        <dd>Web Audio API Library for Synthesizer, Effects, Visualization, Recording ... etc</dd>
-                        <dt><a href="https://korilakkuma.github.io/X-Sound/" target="_blank" rel="noopener noreferrer">X Sound</a></dt>
-                        <dd>Multifunctional Synthesizer by XSound</dd>
-                        <dt><a href="https://weblike-curtaincall.ssl-lolipop.jp/portfolio-web-sounder/" target="_blank" rel="noopener noreferrer">WEB SOUNDER</a></dt>
-                        <dd>Website for Web Audio API</dd>
-                    </dl>
-                </div>
-            </section>
-        );
-    }
-
-    /*
-    constructor(props) {
-        super(props);
-
         this.state = {
-            index : 0
+            currentItem : 0,
+            slide       : 0
         };
 
         this.items = [
-            { image : <div>1</div>, src : '1', order : '2' },
-            { image : <div>2</div>, src : '2', order : '3' },
-            { image : <div>3</div>, src : '3', order : '4' },
-            { image : <div>4</div>, src : '4', order : '5' },
-            { image : <div>5</div>, src : '5', order : '1' }
+            { image : <div>1</div>, src : '1', href : '', order : '2' },
+            { image : <div>2</div>, src : '2', href : '', order : '3' },
+            { image : <div>3</div>, src : '3', href : '', order : '4' },
+            { image : <div>4</div>, src : '4', href : '', order : '5' },
+            { image : <div>5</div>, src : '5', href : '', order : '1' }
         ];
 
-        this.carousel = null;
+        this.timer = null;
 
-        this.intervalId = null;
-
-        this.isFirst = false;
-
-        this.onClickCarouselButton = this.onClickCarouselButton.bind(this);
-        this.onInterval = this.onInterval.bind(this);
+        this.onClickNavButton = this.onClickNavButton.bind(this);
+        this.next             = this.next.bind(this);
     }
 
-    onClickCarouselButton(event) {
+    prev() {
+        const { currentItem, slide } = this.state;
+
+        const prevIndex = (currentItem === 0) ? (this.items.length - 1) : (currentItem - 1);
+
+        this.setState({
+            currentItem : prevIndex,
+            slide       : slide - 1
+        });
     }
 
-    onInterval() {
-        let index = 0;
+    next() {
+        const { currentItem, slide } = this.state;
 
-        if (this.isFirst) {
-            index = 0;
-            this.isFirst = false;
-        } else {
-            index = this.state.index + 1;
+        const nextIndex = (currentItem === (this.items.length - 1)) ? 0 : (currentItem + 1); 
+
+        this.setState({
+            currentItem : nextIndex,
+            slide       : slide + 1
+        });
+    }
+
+    setIndex(index) {
+        const { currentItem, slide } = this.state;
+
+        if (index === currentItem) {
+            return;
         }
 
-        if (index === (this.items.length - 1)) {
-            this.carousel.style.transform = `translateX(${-1 * (index - 3) * 400}px)`;
-            // items = [...items.slice(2, index), items[index], items[0], items[1]];
-            this.isFirst = true;
-        } else if (index === (this.items.length - 2)) {
-            this.items.forEach((item, index) => {
-                if (index === 4) {
-                    item.order = '5';
-                } else {
-                    item.order = String(parseInt(item.order, 10) - 1);
-                }
+        const slideIndex = currentItem - index;
 
-                console.dir(item);
-            });
+        this.setState({
+            currentItem : index,
+            slide       : slide - slideIndex
+        });
+    }
 
-            this.carousel.style.transform = `translateX(${-1 * (index - 2) * 400}px)`;
-        } else if (index < (this.items.length - 1)) {
-            this.carousel.style.transform = `translateX(${-1 * (index - 1) * 400}px)`;
-        }
+    onClickNavButton(event) {
+        window.clearInterval(this.timer);
+        this.timer = null;
 
-        this.setState({ index });
+        const index = parseInt(event.currentTarget.getAttribute('data-index'), 10);
+        this.setIndex(index);
     }
 
     componentDidMount() {
-        this.intervalId = window.setInterval(this.onInterval, 3000);
+        this.timer = window.setInterval(this.next, 3000);
     }
 
-    shouldComponentUpdate() {
-        return true;
+    renderNav() {
+        const { currentItem } = this.state;
+
+        return (
+          <ol className={`${Portfolio.CLASS_NAME}__carouselNav`}>
+            {this.items.map((item, index) => <li key={item.src}><button data-index={index} type="button" onClick={this.onClickNavButton} disabled={index === currentItem} aria-label={index + 1} className={index === currentItem ? '-active' : ''}></button></li>)}
+          </ol>
+        );
     }
 
-    componentWillUnmount() {
-        window.clearInterval(this.intervalId);
-        this.intervalId = null;
+    renderItems() {
+        const { currentItem, slide } = this.state;
+
+        const orderList = new Array(this.items.length);
+
+        for (let i = currentItem, j = 0; i < this.items.length; i++, j++) {
+            orderList[j] = i;
+        }
+
+        for (let i = 0, j = (this.items.length - currentItem); i < currentItem; i++, j++) {
+            orderList[j] = i;
+        }
+
+        const slideAmountRight = (slide * -400) + 400; 
+        const slideAmountLeft  = slide * 400;
+        const style            = {
+            transform : `translateX(${slideAmountRight}px)`,
+            left      : `${slideAmountLeft}px`
+        };
+
+        return (
+          <ol style={style}>
+            {this.items.map((item, index) => {
+                let order = orderList.indexOf(index) + 2;
+
+                if (order > this.items.length) {
+                    order = order - this.items.length;
+                }
+
+                return (
+                    <li key={item.src} style={order ? { order } : null} aria-hidden={index !== currentItem}>
+                        <a href={item.href} rel="noopener noreferrer" className="image-link">
+                            {item.image}
+                        </a>
+                    </li>
+                );
+            })}
+          </ol>
+        );
     }
 
     render() {
@@ -112,16 +132,11 @@ export default class Portfolio extends React.Component {
                 <div className="aligner">
                     <h1>PORTFOLIO</h1>
                     <div className={`${Portfolio.CLASS_NAME}__carousel`}>
-                        <ol ref={node => this.carousel = node} style={{ transform : 'translateX(400px)' }}>
-                            {this.items.map((item, index) => <li key={item.href} style={{ order : item.order }}><a href={item.href} target="_blank" rel="noopener noreferrer" className="image-link">{item.image}</a></li>)}
-                        </ol>
+                        {this.renderItems()}
                     </div>
-                    <ol className={`${Portfolio.CLASS_NAME}__carouselSelector`}>
-                        {this.items.map((item, index) => <li key={item.href}><button data-index={index} type="button" onClick={this.onClickCarouselButton} disabled={index === this.state.index} className={index === this.state.index ? '-active' : ''}></button></li>)}
-                    </ol>
+                    {this.renderNav()}
                 </div>
             </section>
         );
     }
-    */
 }

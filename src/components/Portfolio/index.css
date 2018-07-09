@@ -7,10 +7,6 @@
     color: var(--base-color);
 }
 
-.Portfolio dl {
-    margin-top: 12px;
-}
-
 .Portfolio__carousel {
     margin: 12px auto 0;
     width: 800px;
@@ -26,7 +22,8 @@
     flex-wrap: nowrap;
     -webkit-justify-content: center;
     justify-content: center;
-    transition: transform 1.5s ease-in-out 0s, order 1.5s ease-in-out 0s;
+    position: relative;
+    transition: transform 1.5s ease-in-out;
 }
 
 .Portfolio__carousel > ol > li {
@@ -41,7 +38,7 @@
     text-align: center;
 }
 
-.Portfolio__carouselSelector {
+.Portfolio__carouselNav {
     -webkit-display: flex;
     display: flex;
     -webkit-flex-direction: row;
@@ -55,12 +52,12 @@
     margin-top: 12px;
 }
 
-.Portfolio__carouselSelector > li {
+.Portfolio__carouselNav > li {
     display: inline-block;
     margin-left: 4px;
 }
 
-.Portfolio__carouselSelector > li > button {
+.Portfolio__carouselNav > li > button {
     border: none;
     background: none;
     cursor: pointer;
@@ -70,10 +67,10 @@
     border-radius: 8px;
 }
 
-.Portfolio__carouselSelector > li > button:focus {
+.Portfolio__carouselNav > li > button:focus {
     outline: 2px dotted var(--assort-color);
 }
 
-.Portfolio__carouselSelector > li > button.-active {
+.Portfolio__carouselNav > li > button.-active {
     background-color: var(--base-color);
 }
