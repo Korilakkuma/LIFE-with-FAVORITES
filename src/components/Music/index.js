@@ -52,11 +52,11 @@ export default class Music extends React.Component {
                     <h1>MUSIC</h1>
                     <div className={`${Music.CLASS_NAME}__carousel`}>
                         <ol ref={node => this.carousel = node}>
-                            {this.items.map(item => <li key={item.src}>{item}</li>)}
+                            {this.items.map((item, index) => <li key={item.src} aria-hidden={index !== this.state.index}>{item}</li>)}
                         </ol>
                     </div>
                     <ol className={`${Music.CLASS_NAME}__carouselSelector`}>
-                        {this.items.map((item, index) => <li key={item.src}><button data-index={index} type="button" onClick={this.onClickCarouselButton} disabled={index === this.state.index} className={index === this.state.index ? '-active' : ''}></button></li>)}
+                        {this.items.map((item, index) => <li key={item.src}><button data-index={index} type="button" onClick={this.onClickCarouselButton} disabled={index === this.state.index} aria-label={index + 1} className={index === this.state.index ? '-active' : ''}></button></li>)}
                     </ol>
                 </div>
             </section>
