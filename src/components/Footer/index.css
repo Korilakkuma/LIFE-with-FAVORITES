@@ -1,0 +1,104 @@
+.Footer {
+    position: relative;
+    color: var(--white);
+    background-color: var(--base-color);
+}
+
+.Footer h1 {
+    color: var(--white);
+}
+
+.Footer fieldset {
+    margin-top: 12px;
+    border: none;
+}
+
+.Footer dl dd {
+    margin: 8px 0;
+}
+
+.Footer label span {
+    margin-left: 12px;
+}
+
+.Footer input,
+.Footer textarea {
+    border: none;
+    border-radius: 4px;
+    /* border-radius: 24px; */
+    padding: 1rem;
+    width: 20rem;
+    font-size: 1.25rem;
+    color: var(--gray-light);
+    transition: box-shadow 0.6s ease 0s;
+}
+
+.Footer textarea {
+    height: 5rem;
+}
+
+.Footer input:focus,
+.Footer textarea:focus {
+    outline: 1px dotted var(--white);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3) inset;
+}
+
+.Footer ul {
+    margin-top: 12px;
+    width: 22rem;
+    text-align: right;
+}
+
+.Footer ul li {
+    display: inline-block;
+}
+
+.Footer ul li:last-child {
+    margin-left: 12px;
+}
+
+.Footer button {
+    cursor: pointer;
+    border-radius: 4px;
+    /* border-radius: 24px; */
+    padding: 12px 24px;
+    font-size: 1.25rem;
+}
+
+.Footer button:focus {
+    outline: 1px dotted var(--white);
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3) inset;
+}
+
+.Footer__send {
+    border: none;
+    color: var(--base-color);
+    background-color: var(--white);
+}
+
+.Footer__reset {
+    border: 1px solid var(--white);
+    color: var(--white);
+    background-color: var(--base-color);
+}
+
+.Footer .-invalid {
+    animation: animation-blink 0.5s ease alternate infinite 0s;
+}
+
+@keyframes animation-blink {
+      0% { opacity: 1.0; }
+    100% { opacity: 0.5; }
+}
+
+.Footer__copyright {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    display: block;
+    padding: 24px 0;
+    width: 100%;
+    text-align: center;
+    color: var(--base-color);
+    background-color: var(--white);
+}
