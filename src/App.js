@@ -26,6 +26,7 @@ export default class App extends React.Component {
                     <Portfolio />
                     <Skills />
                     <Music />
+                    <Footer />
                 </main>
             </React.Fragment>
         );
