@@ -8,23 +8,16 @@
 }
 
 .Header h1 {
-    margin-top: -4vh;
+    /* margin-top: -4vh; */
     font-size: 4rem;
+    animation: animation-fade-in 2s ease-in-out normal 1 0s forwards;
 }
 
 .Header h1 > span {
     font-size: 3rem;
 }
 
-.Header__sns {
-    margin-top: 12px;
-}
-
-.Header__sns > li,
-.Header__sns > li > a {
-    display: inline-block;
-}
-
-.Header__sns > li:not(:first-child) {
-    margin-left: 24px;
+@keyframes animation-fade-in {
+      0% { opacity: 0; }
+    100% { opacity: 1; }
 }
