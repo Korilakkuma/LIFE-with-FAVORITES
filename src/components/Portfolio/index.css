@@ -22,7 +22,7 @@
     -webkit-justify-content: center;
     justify-content: center;
     position: relative;
-    transition: transform 1.5s ease-in-out;
+    transition: transform 0.3s ease-out;
 }
 
 .Portfolio__carousel > ol > li,
