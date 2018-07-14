@@ -60,7 +60,19 @@ export default class Footer extends React.Component {
     onClickReset(event) {
         if (!window.confirm('Reset contents. OK ?')) {
             event.preventDefault();
+            return;
         }
+
+        this.setState({
+            subject                : '',
+            isOverSubject          : false,
+            securityErrorOfSubject : false,
+            from                   : '',
+            isInvalidFrom          : false,
+            securityErrorOfFrom    : false,
+            body                   : '',
+            isOverBody             : false
+        });
     }
 
     onSubmit(event) {
@@ -173,7 +185,7 @@ export default class Footer extends React.Component {
                     <h1>CONTACT</h1>
                     <fieldset>
                         <legend hidden>Contact Form</legend>
-                        <form action="https://weblike-curtaincall.ssl-lolipop.jp/php/bootstrap.php?mode=contact" method="post"  onSubmit={this.onSubmit}>
+                        <form action="https://weblike-curtaincall.ssl-lolipop.jp/php/bootstrap.php?mode=contact" method="post" onSubmit={this.onSubmit} className={`${Footer.CLASS_NAME}__contact`}>
                             <dl>
                                 <dt><label htmlFor="text-subject">Subject<span aria-live="assertive" className={isOverSubject ? '-invalid' : ''}>{subject.length} / {Footer.MAX_LENGTH_OF_SUBJECT}</span></label></dt>
                                 <dd><input type="text" id="text-subject" name="subject" tabIndex="1" onChange={this.onChangeToSubject} /></dd>
@@ -189,7 +201,26 @@ export default class Footer extends React.Component {
                         </form>
                     </fieldset>
                 </div>
-                <small className={`${Footer.CLASS_NAME}__copyright`}>Copyright (c) 2011 - 2018 Tomohiro IKEDA (Korilakkuma)</small>
+                <section className={`${Footer.CLASS_NAME}__bottom`}>
+                    <ul className={`${Footer.CLASS_NAME}__sns`}>
+                        <li>
+                            <a href="https://github.com/Korilakkuma" target="_blank" rel="noopener noreferrer" className="image-link">
+                                <img src="assets/images/icon-github.png" alt="GitHub" width="32" height="32" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/xsoundjs" target="_blank" rel="noopener noreferrer" className="image-link">
+                                <img src="assets/images/icon-twitter.png" alt="Twitter" width="32" height="32" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://weblike-curtaincall.ssl-lolipop.jp/blog/" target="_blank" rel="noopener noreferrer" className="image-link">
+                                <img src="assets/images/icon-wordpress.png" alt="WordPress" width="32" height="32" />
+                            </a>
+                        </li>
+                    </ul>
+                    <small className={`${Footer.CLASS_NAME}__copyright`}>Copyright (c) 2011 - 2018 Tomohiro IKEDA (Korilakkuma)</small>
+                </section>
             </footer>
         );
     }

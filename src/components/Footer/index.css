@@ -1,7 +1,13 @@
 .Footer {
+    -webkit-align-items: center;
+    align-items: center;
     position: relative;
     color: var(--white);
     background-color: var(--base-color);
+}
+
+.Footer .aligner {
+    width: auto;
 }
 
 .Footer h1 {
@@ -13,16 +19,16 @@
     border: none;
 }
 
-.Footer dl dd {
+.Footer__contact dl > dd {
     margin: 8px 0;
 }
 
-.Footer label span {
+.Footer__contact label span {
     margin-left: 12px;
 }
 
-.Footer input,
-.Footer textarea {
+.Footer__contact input,
+.Footer__contact textarea {
     border: none;
     border-radius: 4px;
     /* border-radius: 24px; */
@@ -33,31 +39,32 @@
     transition: box-shadow 0.6s ease 0s;
 }
 
-.Footer textarea {
+.Footer__contact textarea {
     height: 5rem;
+    resize: none;
 }
 
-.Footer input:focus,
-.Footer textarea:focus {
+.Footer__contact input:focus,
+.Footer__contact textarea:focus {
     outline: 1px dotted var(--white);
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3) inset;
 }
 
-.Footer ul {
-    margin-top: 12px;
+.Footer__contact ul {
+    margin-top: 24px;
     width: 22rem;
     text-align: right;
 }
 
-.Footer ul li {
+.Footer__contact ul > li {
     display: inline-block;
 }
 
-.Footer ul li:last-child {
+.Footer__contact ul > li:last-child {
     margin-left: 12px;
 }
 
-.Footer button {
+.Footer__contact button {
     cursor: pointer;
     border-radius: 4px;
     /* border-radius: 24px; */
@@ -65,7 +72,8 @@
     font-size: 1.25rem;
 }
 
-.Footer button:focus {
+.Footer__contact button:focus,
+.Footer__contact button:active {
     outline: 1px dotted var(--white);
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3) inset;
 }
@@ -82,7 +90,7 @@
     background-color: var(--base-color);
 }
 
-.Footer .-invalid {
+.Footer__contact .-invalid {
     animation: animation-blink 0.5s ease alternate infinite 0s;
 }
 
@@ -91,9 +99,9 @@
     100% { opacity: 0.5; }
 }
 
-.Footer__copyright {
+.Footer__bottom {
     position: absolute;
-    bottom: 0;
+    bottom: -111px;
     z-index: 2;
     display: block;
     padding: 24px 0;
@@ -101,4 +109,23 @@
     text-align: center;
     color: var(--base-color);
     background-color: var(--white);
+}
+
+.Footer__sns > li,
+.Footer__sns > li > a {
+    display: inline-block;
+    transition: opacity 0.6s ease 0s;
+}
+
+.Footer__sns > li > a:hover {
+    opacity: 0.6;
+}
+
+.Footer__sns > li:not(:first-child) {
+    margin-left: 12px;
+}
+
+.Footer__copyright {
+    display: block;
+    margin-top: 12px;
 }
