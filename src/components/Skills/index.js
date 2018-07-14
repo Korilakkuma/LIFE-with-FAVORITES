@@ -27,7 +27,7 @@ export default class Skills extends React.Component {
                         <li>Shellscript</li>
                         <li>MySQL, MongoDB</li>
                         <li>Nginx, Docker</li>
-                        <li>macOS, Linux, Vim, zsh</li>
+                        <li>macOS, Linux, zsh, Vim</li>
                         <li>Sketch, Photoshop</li> 
                     </ul>
                 </div>
