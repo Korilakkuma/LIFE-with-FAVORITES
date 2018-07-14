@@ -14,7 +14,6 @@
 }
 
 .Portfolio__carousel > ol {
-    -webkit-display: flex;
     display: flex;
     -webkit-flex-direction: row;
     flex-direction: row;
@@ -26,20 +25,16 @@
     transition: transform 1.5s ease-in-out;
 }
 
-.Portfolio__carousel > ol > li {
+.Portfolio__carousel > ol > li,
+.Portfolio__carousel > ol > li > a {
     display: block;
 }
 
-.Portfolio__carousel > ol > li div {
-    border: 1px solid var(--base-color);
-    width: 400px;
-    height: 300px;
-    line-height: 300px;
-    text-align: center;
+.Portfolio__carousel > ol > li > a > img {
+    max-width: none;
 }
 
 .Portfolio__carouselNav {
-    -webkit-display: flex;
     display: flex;
     -webkit-flex-direction: row;
     flex-direction: row;

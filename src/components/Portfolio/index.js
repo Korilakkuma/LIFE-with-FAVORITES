@@ -13,11 +13,31 @@ export default class Portfolio extends React.Component {
         };
 
         this.items = [
-            { image : <div>1</div>, src : '1', href : '', order : '2' },
-            { image : <div>2</div>, src : '2', href : '', order : '3' },
-            { image : <div>3</div>, src : '3', href : '', order : '4' },
-            { image : <div>4</div>, src : '4', href : '', order : '5' },
-            { image : <div>5</div>, src : '5', href : '', order : '1' }
+            {
+                image : <img src="assets/images/screenshot-x-sound.png" alt="X Sound" width="400" height="300" />,
+                href  : 'https://korilakkuma.github.io/X-Sound/',
+                order : '2'
+            },
+            {
+                image : <img src="assets/images/screenshot-xsound.png" alt="XSound" width="400" height="300" />,
+                href  : 'https://korilakkuma.github.io/XSound/',
+                order : '3'
+            },
+            {
+                image : <img src="assets/images/screenshot-instant-canvas-presentation.png" alt="Instant Canvas Presentation" width="400" height="300" />,
+                href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-instant-canvas-presentation/',
+                order : '4'
+            },
+            {
+                image : <img src="assets/images/screenshot-music-v.png" alt="Music V" width="400" height="300" />,
+                href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-music-v/',
+                order : '5'
+            },
+            {
+                image : <img src="assets/images/screenshot-web-sounder.png" alt="WEB SOUNDER" width="400" height="300" />,
+                href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-web-sounder/',
+                order : '1'
+            },
         ];
 
         this.timer = null;
@@ -80,7 +100,7 @@ export default class Portfolio extends React.Component {
 
         return (
           <ol className={`${Portfolio.CLASS_NAME}__carouselNav`}>
-            {this.items.map((item, index) => <li key={item.src}><button data-index={index} type="button" onClick={this.onClickNavButton} disabled={index === currentItem} aria-label={index + 1} className={index === currentItem ? '-active' : ''}></button></li>)}
+            {this.items.map((item, index) => <li key={item.href}><button data-index={index} type="button" onClick={this.onClickNavButton} disabled={index === currentItem} aria-label={index + 1} className={index === currentItem ? '-active' : ''}></button></li>)}
           </ol>
         );
     }
@@ -115,8 +135,8 @@ export default class Portfolio extends React.Component {
                 }
 
                 return (
-                    <li key={item.src} style={order ? { order } : null} aria-hidden={index !== currentItem}>
-                        <a href={item.href} rel="noopener noreferrer" className="image-link">
+                    <li key={item.href} style={order ? { order } : null} aria-hidden={index !== currentItem}>
+                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="image-link">
                             {item.image}
                         </a>
                     </li>
