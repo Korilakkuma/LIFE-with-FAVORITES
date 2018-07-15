@@ -20,11 +20,11 @@ export default class Header extends React.Component {
                     <h1><img src="assets/images/logo.png" alt="LIFE with FAVORITES" width="592" height="156" /></h1>
                     {/*
                     <svg width="1182" height="312" title="LIFE with FAVORITES" role="img">
-                        <use xlinkHref="assets/images/logo.svg#life_favorite" />
+                        <use xlinkHref="assets/images/logo.svg" />
                     </svg>
                     */}
                     {/* <h1>LIFE <span>with</span> FAVORITES</h1> */}
-                    {/* <h2>池田友洋 * Tomohiro IKEDA のオキニイリ生活サイト</h2> */}
+                    <h2>Tomohiro IKEDA のオキニイリ生活サイト</h2>
                 </div>
             </header>
         );
