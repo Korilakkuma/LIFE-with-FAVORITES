@@ -22,7 +22,35 @@
     text-shadow: none;
 }
 
+.Header h2 > span {
+    display: inline-block;
+}
+
+.Header h2 > span:nth-child(odd)  {
+    animation: animation-rotate 1s linear normal 1 2s forwards;
+}
+
+.Header h2 > span:nth-child(even) {
+    animation: animation-rotate-reverse 1s linear normal 1 2s forwards;
+}
+
 @keyframes animation-fade-in {
       0% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+@keyframes animation-rotate {
+      0% { transform: rotate(-15deg); }
+     25% { transform: rotate(-15deg); }
+     50% { transform: rotate( 15deg); }
+     75% { transform: rotate( 15deg); }
+    100% { transform: rotate(  0deg); }
+}
+
+@keyframes animation-rotate-reverse {
+      0% { transform: rotate( 15deg); }
+     25% { transform: rotate( 15deg); }
+     50% { transform: rotate(-15deg); }
+     75% { transform: rotate(-15deg); }
+    100% { transform: rotate(  0deg); }
 }

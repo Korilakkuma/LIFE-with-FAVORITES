@@ -24,7 +24,15 @@ export default class Header extends React.Component {
                     </svg>
                     */}
                     {/* <h1>LIFE <span>with</span> FAVORITES</h1> */}
-                    <h2>Tomohiro IKEDA のオキニイリ生活サイト</h2>
+                    <h2>
+                        Tomohiro IKEDA の
+                        <span role="presentation">オ</span>
+                        <span role="presentation">キ</span>
+                        <span role="presentation">ニ</span>
+                        <span role="presentation">イ</span>
+                        <span role="presentation">リ</span>
+                        生活サイト
+                    </h2>
                 </div>
             </header>
         );
