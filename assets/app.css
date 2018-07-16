@@ -100,6 +100,7 @@ img {
     --black: #000;
     --transparent: rgba(0, 0, 0, 0);
     --desktop-max-width: 1280px;
+    --smartphone-min-width: 320px;
 }
 
 .text-ellipsis {
@@ -141,11 +142,15 @@ img {
     vertical-align: -4px;
 }
 
+html,
+body {
+    font-size: calc(4 * ((100vw - 320px) / (var(--desktop-max-width) - var(--smartphone-min-width))) + 12px);
+}
+
 body {
     font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", Meiryo, Osaka, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", "MS PGothic", sans-serif;
-    font-size: var(--base-font-size);
     line-height: 1.5;
-    min-width: 320px;
+    min-width: var(--smartphone-min-width);
 }
 
 header,

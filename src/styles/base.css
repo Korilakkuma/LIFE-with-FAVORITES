@@ -1,8 +1,12 @@
+html,
+body {
+    font-size: calc(4 * ((100vw - 320px) / (var(--desktop-max-width) - var(--smartphone-min-width))) + 12px);
+}
+
 body {
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    font-size: var(--base-font-size);
     line-height: 1.5;
-    min-width: 320px;
+    min-width: var(--smartphone-min-width);
 }
 
 header,
