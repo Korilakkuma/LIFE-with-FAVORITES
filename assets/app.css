@@ -356,11 +356,11 @@ a:active {
     display: inline-block;
 }
 
-.Header h2 > span:nth-child(odd)  {
+.Header h2.-animation > span:nth-child(odd)  {
     animation: animation-rotate 1s linear normal 1 2s forwards;
 }
 
-.Header h2 > span:nth-child(even) {
+.Header h2.-animation > span:nth-child(even) {
     animation: animation-rotate-reverse 1s linear normal 1 2s forwards;
 }
 
