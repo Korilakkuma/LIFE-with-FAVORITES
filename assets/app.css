@@ -144,7 +144,8 @@ img {
 
 html,
 body {
-    font-size: calc(4 * ((100vw - 320px) / (var(--desktop-max-width) - var(--smartphone-min-width))) + 12px);
+    /* font-size: calc(4 * ((100vw - var(--smartphone-min-width)) / (var(--desktop-max-width) - var(--smartphone-min-width))) + 12px); */
+    font-size: calc(4 * ((100vw - 320px) / 960) + 12px);
 }
 
 body {
