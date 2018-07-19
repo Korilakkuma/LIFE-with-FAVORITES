@@ -35,7 +35,7 @@ export default class Header extends React.Component {
             <header className={Header.CLASS_NAME}>
                 <div className="aligner">
                     <h1 onMouseEnter={this.onMouseEnter}>
-                        <img src="assets/images/logo.png" alt="LIFE with FAVORITES" width="592" height="156" />
+                        <img src="assets/images/logo.png" alt="LIFE with FAVORITES" />
                     </h1>
                     {/*
                     <svg width="1182" height="312" title="LIFE with FAVORITES" role="img">
