@@ -526,6 +526,7 @@ a:active {
 }
 
 .Portfolio__carouselNav > li > button {
+    -webkit-appearance: none;
     border: none;
     background: none;
     cursor: pointer;
