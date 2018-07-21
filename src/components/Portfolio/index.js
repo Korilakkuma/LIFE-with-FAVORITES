@@ -14,31 +14,33 @@ export default class Portfolio extends React.Component {
 
         this.items = [
             {
-                image : <img src="assets/images/screenshot-x-sound.png" alt="X Sound" width="400" height="300" />,
+                image : <img ref={node => this.image = node} src="assets/images/screenshot-x-sound.png" alt="X Sound" />,
                 href  : 'https://korilakkuma.github.io/X-Sound/',
                 order : '2'
             },
             {
-                image : <img src="assets/images/screenshot-xsound.png" alt="XSound" width="400" height="300" />,
+                image : <img src="assets/images/screenshot-xsound.png" alt="XSound" />,
                 href  : 'https://korilakkuma.github.io/XSound/',
                 order : '3'
             },
             {
-                image : <img src="assets/images/screenshot-instant-canvas-presentation.png" alt="Instant Canvas Presentation" width="400" height="300" />,
+                image : <img src="assets/images/screenshot-instant-canvas-presentation.png" alt="Instant Canvas Presentation" />,
                 href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-instant-canvas-presentation/',
                 order : '4'
             },
             {
-                image : <img src="assets/images/screenshot-music-v.png" alt="Music V" width="400" height="300" />,
+                image : <img src="assets/images/screenshot-music-v.png" alt="Music V" />,
                 href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-music-v/',
                 order : '5'
             },
             {
-                image : <img src="assets/images/screenshot-web-sounder.png" alt="WEB SOUNDER" width="400" height="300" />,
+                image : <img src="assets/images/screenshot-web-sounder.png" alt="WEB SOUNDER" />,
                 href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-web-sounder/',
                 order : '1'
             },
         ];
+
+        this.image = null;
 
         this.timer = null;
 
@@ -118,8 +120,9 @@ export default class Portfolio extends React.Component {
             orderList[j] = i;
         }
 
-        const slideAmountRight = (slide * -400) + 400; 
-        const slideAmountLeft  = slide * 400;
+        const offset           = this.image ? this.image.width : 400;
+        const slideAmountRight = (slide * -offset) + offset;
+        const slideAmountLeft  = slide * offset;
         const style            = {
             transform : `translateX(${slideAmountRight}px)`,
             left      : `${slideAmountLeft}px`

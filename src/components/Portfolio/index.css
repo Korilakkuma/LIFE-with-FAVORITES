@@ -9,7 +9,9 @@
 
 .Portfolio__carousel {
     margin: 12px auto 0;
-    width: 800px;
+    max-width: 800px;
+    /* width: 100vw; */
+    /* width: calc(429 * ((100vw - 320px) / 960) + 300px); */
     overflow-x: hidden;
 }
 
@@ -31,7 +33,12 @@
 }
 
 .Portfolio__carousel > ol > li > a > img {
-    max-width: none;
+    max-width: 400px;
+    width: 100vw;
+}
+
+.Portfolio__carousel [aria-hidden="true"] {
+    pointer-events: none;
 }
 
 .Portfolio__carouselNav {
