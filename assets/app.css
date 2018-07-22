@@ -356,6 +356,7 @@ a:active {
 .Header h2 {
     font-feature-settings: "palt";
     font-size: 1rem;
+    white-space: nowrap;
     text-shadow: none;
 }
 
