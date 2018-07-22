@@ -16,26 +16,31 @@ export default class Portfolio extends React.Component {
             {
                 image : <img ref={node => this.image = node} src="assets/images/screenshot-x-sound.png" alt="X Sound" />,
                 href  : 'https://korilakkuma.github.io/X-Sound/',
+                label : 'X Sound',
                 order : '2'
             },
             {
                 image : <img src="assets/images/screenshot-xsound.png" alt="XSound" />,
                 href  : 'https://korilakkuma.github.io/XSound/',
+                label : 'XSound',
                 order : '3'
             },
             {
                 image : <img src="assets/images/screenshot-instant-canvas-presentation.png" alt="Instant Canvas Presentation" />,
                 href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-instant-canvas-presentation/',
+                label : 'Instant Canvas Presentation',
                 order : '4'
             },
             {
                 image : <img src="assets/images/screenshot-music-v.png" alt="Music V" />,
                 href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-music-v/',
+                label : 'Music V',
                 order : '5'
             },
             {
                 image : <img src="assets/images/screenshot-web-sounder.png" alt="WEB SOUNDER" />,
                 href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-web-sounder/',
+                label : 'WEB SOUNDER',
                 order : '1'
             },
         ];
@@ -100,9 +105,10 @@ export default class Portfolio extends React.Component {
     renderNav() {
         const { currentItem } = this.state;
 
+        // Use `span` instead of `button` for iOS
         return (
           <ol className={`${Portfolio.CLASS_NAME}__carouselNav`}>
-            {this.items.map((item, index) => <li key={item.href}><button data-index={index} type="button" onClick={this.onClickNavButton} disabled={index === currentItem} aria-label={index + 1} className={index === currentItem ? '-active' : ''}></button></li>)}
+            {this.items.map((item, index) => <li key={item.href}><span data-index={index} role="button" onClick={this.onClickNavButton} disabled={index === currentItem} aria-label={item.label} className={index === currentItem ? '-active' : ''}></span></li>)}
           </ol>
         );
     }

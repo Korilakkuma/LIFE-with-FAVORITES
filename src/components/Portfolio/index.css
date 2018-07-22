@@ -59,8 +59,8 @@
     margin-left: 4px;
 }
 
-.Portfolio__carouselNav > li > button {
-    -webkit-appearance: none;
+.Portfolio__carouselNav > li > span {
+    display: inline-block;
     border: none;
     background: none;
     cursor: pointer;
@@ -71,14 +71,14 @@
     transition: background-color 0.6s ease 0s, opacity 0.6s ease 0s;
 }
 
-.Portfolio__carouselNav > li > button:hover {
+.Portfolio__carouselNav > li > span:hover {
     opacity: 0.6;
 }
 
-.Portfolio__carouselNav > li > button:focus {
+.Portfolio__carouselNav > li > span:focus {
     outline: 2px dotted var(--assort-color);
 }
 
-.Portfolio__carouselNav > li > button.-active {
+.Portfolio__carouselNav > li > span.-active {
     background-color: var(--base-color);
 }
