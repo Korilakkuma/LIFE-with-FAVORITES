@@ -18,7 +18,8 @@ export default class Footer extends React.Component {
             isInvalidFrom          : false,
             securityErrorOfFrom    : false,
             body                   : '',
-            isOverBody             : false
+            isOverBody             : false,
+            errorMessages          : []
         };
 
         this.onChangeToSubject = this.onChangeToSubject.bind(this);
@@ -34,7 +35,8 @@ export default class Footer extends React.Component {
         this.setState({
             subject,
             isOverSubject          : subject.length > Footer.MAX_LENGTH_OF_SUBJECT,
-            securityErrorOfSubject : /[\r\n]/.test(subject)
+            securityErrorOfSubject : /[\r\n]/.test(subject),
+            errorMessages          : []
         });
     }
 
@@ -44,7 +46,8 @@ export default class Footer extends React.Component {
         this.setState({
             from,
             isInvalidFrom       : !/^[*+!.&#$|'\\%/0-9a-z^_`{}=?~:-]+@([0-9a-z-]+\.)+[0-9a-z]{2,}$/i.test(from),
-            securityErrorOfFrom : /[\r\n]/.test(from)
+            securityErrorOfFrom : /[\r\n]/.test(from),
+            errorMessages       : []
         });
     }
 
@@ -53,7 +56,8 @@ export default class Footer extends React.Component {
 
         this.setState({
             body,
-            isOverBody : body.length > Footer.MAX_LENGTH_OF_BODY
+            isOverBody    : body.length > Footer.MAX_LENGTH_OF_BODY,
+            errorMessages : []
         });
     }
 
@@ -71,7 +75,8 @@ export default class Footer extends React.Component {
             isInvalidFrom          : false,
             securityErrorOfFrom    : false,
             body                   : '',
-            isOverBody             : false
+            isOverBody             : false,
+            errorMessages          : []
         });
     }
 
@@ -86,47 +91,42 @@ export default class Footer extends React.Component {
             isInvalidFrom,
             securityErrorOfFrom,
             body,
-            isOverBody
+            isOverBody,
+            errorMessages
         } = this.state;
 
-        let isError = false;
+        errorMessages.length = 0;
 
         if (subject.length === 0) {
-            isError = true;
-            window.alert('Please type subject.');
+            errorMessages.push('Please type subject.');
         }
 
         if (isOverSubject) {
-            isError = true;
-            window.alert('Please type subject less than or equal 50 to characters.');
+            errorMessages.push('Subject is less than or equal to 50 chars.');
         }
 
         if (securityErrorOfSubject) {
-            isError = true;
-            window.alert('Invalid type.');
+            errorMessages.push('Invalid subject.');
         }
 
         if (isInvalidFrom) {
-            isError = true;
-            window.alert('Mail address is invalid.');
+            errorMessages.push('Mail address is invalid.');
         }
 
         if (securityErrorOfFrom) {
-            isError = true;
-            window.alert('Invalid type.');
+            errorMessages.push('Invalid mail address.');
         }
 
         if (body.length === 0) {
-            isError = true;
-            window.alert('Please type message.');
+            errorMessages.push('Please type body.');
         }
 
         if (isOverBody) {
-            isError = true;
-            window.alert('Please type message less than or equal to 1000 characters.');
+            errorMessages.push('Body is less than or equal to 1000 chars.');
         }
 
-        if (isError) {
+        if (errorMessages.length > 0) {
+            this.setState({ errorMessages });
             return;
         }
 
@@ -166,7 +166,8 @@ export default class Footer extends React.Component {
             (this.state.isInvalidFrom !== nextState.isInvalidFrom) ||
             (this.state.securityErrorOfFrom !== nextState.securityErrorOfFrom) ||
             (this.state.body !== nextState.body) ||
-            (this.state.isOverBody !== nextState.isOverBody);
+            (this.state.isOverBody !== nextState.isOverBody) ||
+            (nextState.errorMessages.length > 0);
     }
 
     render() {
@@ -176,7 +177,8 @@ export default class Footer extends React.Component {
             from,
             isInvalidFrom,
             body,
-            isOverBody
+            isOverBody,
+            errorMessages
         } = this.state;
 
         return (
@@ -199,6 +201,10 @@ export default class Footer extends React.Component {
                                 <li><button type="submit" tabIndex="4" className={`${Footer.CLASS_NAME}__send`}>SEND</button></li>
                             </ul>
                         </form>
+                        {errorMessages.length > 0 ?
+                            <ul className={`${Footer.CLASS_NAME}__errors list-marker -white`}>
+                                {errorMessages.map(message => <li key={message} role="alert" aria-assertive="true">{message}</li>)}
+                            </ul> : null}
                     </fieldset>
                 </div>
                 <section className={`${Footer.CLASS_NAME}__bottom`}>
