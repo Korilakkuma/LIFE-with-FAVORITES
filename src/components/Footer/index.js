@@ -191,7 +191,7 @@ export default class Footer extends React.Component {
                             <dl>
                                 <dt><label htmlFor="text-subject">Subject<span aria-live="assertive" className={isOverSubject ? '-invalid' : ''}>{subject.length} / {Footer.MAX_LENGTH_OF_SUBJECT}</span></label></dt>
                                 <dd><input type="text" id="text-subject" name="subject" tabIndex="1" onChange={this.onChangeToSubject} /></dd>
-                                <dt><label htmlFor="email-from">Address<span hidden={(from.length === 0) || !isInvalidFrom} aria-live="assertive" className={isInvalidFrom ? '-invalid' : ''}>Invalid Email Address</span></label></dt>
+                                <dt><label htmlFor="email-from">Address{/* <span hidden={(from.length === 0) || !isInvalidFrom} aria-live="assertive" className={isInvalidFrom ? '-invalid' : ''}>Invalid Email Address</span> */}</label></dt>
                                 <dd><input type="email" id="email-from" name="from" tabIndex="2" onChange={this.onChangeToFrom} /></dd>
                                 <dt><label htmlFor="textarea-body">Body<span aria-live="assertive" className={isOverBody ? '-invalid' : ''}>{body.length} / {Footer.MAX_LENGTH_OF_BODY}</span></label></dt>
                                 <dd><textarea id="textarea-body" name="body" tabIndex="3" onChange={this.onChangeToBody}></textarea></dd>
