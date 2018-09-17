@@ -174,8 +174,6 @@ export default class Footer extends React.Component {
         const {
             subject,
             isOverSubject,
-            from,
-            isInvalidFrom,
             body,
             isOverBody,
             errorMessages
@@ -187,7 +185,7 @@ export default class Footer extends React.Component {
                     <h1>CONTACT</h1>
                     <fieldset>
                         <legend hidden>Contact Form</legend>
-                        <form action="https://weblike-curtaincall.ssl-lolipop.jp/php/bootstrap.php?mode=contact" method="post" onSubmit={this.onSubmit} className={`${Footer.CLASS_NAME}__contact`}>
+                        <form noValidate action="https://weblike-curtaincall.ssl-lolipop.jp/php/bootstrap.php?mode=contact" method="post" onSubmit={this.onSubmit} className={`${Footer.CLASS_NAME}__contact`}>
                             <dl>
                                 <dt><label htmlFor="text-subject">Subject<span aria-live="assertive" className={isOverSubject ? '-invalid' : ''}>{subject.length} / {Footer.MAX_LENGTH_OF_SUBJECT}</span></label></dt>
                                 <dd><input type="text" id="text-subject" name="subject" tabIndex="1" onChange={this.onChangeToSubject} /></dd>
