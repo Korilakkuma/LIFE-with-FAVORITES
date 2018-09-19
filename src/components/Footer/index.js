@@ -98,31 +98,31 @@ export default class Footer extends React.Component {
         errorMessages.length = 0;
 
         if (subject.length === 0) {
-            errorMessages.push('Please type subject.');
+            errorMessages.push('Please type subject');
         }
 
         if (isOverSubject) {
-            errorMessages.push('Subject is less than or equal to 50 chars.');
+            errorMessages.push('Subject is less than or equal to 50 chars');
         }
 
         if (securityErrorOfSubject) {
-            errorMessages.push('Invalid subject.');
+            errorMessages.push('Invalid subject');
         }
 
         if (isInvalidFrom) {
-            errorMessages.push('Mail address is invalid.');
+            errorMessages.push('Mail address is invalid');
         }
 
         if (securityErrorOfFrom) {
-            errorMessages.push('Invalid mail address.');
+            errorMessages.push('Invalid mail address');
         }
 
         if (body.length === 0) {
-            errorMessages.push('Please type body.');
+            errorMessages.push('Please type body');
         }
 
         if (isOverBody) {
-            errorMessages.push('Body is less than or equal to 1000 chars.');
+            errorMessages.push('Body is less than or equal to 1000 chars');
         }
 
         if (errorMessages.length > 0) {
