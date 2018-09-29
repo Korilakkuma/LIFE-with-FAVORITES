@@ -19,7 +19,8 @@ export default class Footer extends React.Component {
             securityErrorOfFrom    : false,
             body                   : '',
             isOverBody             : false,
-            errorMessages          : []
+            errorMessages          : [],
+            successMessages        : []
         };
 
         this.onChangeToSubject = this.onChangeToSubject.bind(this);
@@ -76,7 +77,8 @@ export default class Footer extends React.Component {
             securityErrorOfFrom    : false,
             body                   : '',
             isOverBody             : false,
-            errorMessages          : []
+            errorMessages          : [],
+            successMessages        : []
         });
     }
 
@@ -152,7 +154,7 @@ export default class Footer extends React.Component {
         fetch(action, options).then(response => {
             return response.json();
         }).then(data => {
-            data.messages.forEach(message => window.alert(message));
+            this.setState({ successMessages : data.messages });
         }).catch(error => {
             window.alert(error);
         });
@@ -167,7 +169,8 @@ export default class Footer extends React.Component {
             (this.state.securityErrorOfFrom !== nextState.securityErrorOfFrom) ||
             (this.state.body !== nextState.body) ||
             (this.state.isOverBody !== nextState.isOverBody) ||
-            (nextState.errorMessages.length > 0);
+            (nextState.errorMessages.length > 0) ||
+            (nextState.successMessages.length > 0);
     }
 
     render() {
@@ -176,7 +179,8 @@ export default class Footer extends React.Component {
             isOverSubject,
             body,
             isOverBody,
-            errorMessages
+            errorMessages,
+            successMessages
         } = this.state;
 
         return (
@@ -202,6 +206,10 @@ export default class Footer extends React.Component {
                         {errorMessages.length > 0 ?
                             <ul className={`${Footer.CLASS_NAME}__errors list-marker -white`}>
                                 {errorMessages.map(message => <li key={message} role="alert" aria-assertive="true">{message}</li>)}
+                            </ul> : null}
+                        {successMessages.length > 0 ?
+                            <ul className={`${Footer.CLASS_NAME}__success list-marker -white`}>
+                                {successMessages.map(message => <li key={message}>{message}</li>)}
                             </ul> : null}
                     </fieldset>
                 </div>
