@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import shallowequal from 'shallowequal';
 
 export default class Footer extends React.Component {
     static CLASS_NAME = 'Footer';
@@ -93,11 +94,10 @@ export default class Footer extends React.Component {
             isInvalidFrom,
             securityErrorOfFrom,
             body,
-            isOverBody,
-            errorMessages
+            isOverBody
         } = this.state;
 
-        errorMessages.length = 0;
+        const errorMessages = [];
 
         if (subject.length === 0) {
             errorMessages.push('Please type subject');
@@ -161,16 +161,10 @@ export default class Footer extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return (this.state.subject !== nextState.subject) ||
-            (this.state.isOverSubject !== nextState.isOverSubject) ||
-            (this.state.securityErrorOfSubject !== nextState.securityErrorOfSubject) ||
-            (this.state.from !== nextState.from) ||
-            (this.state.isInvalidFrom !== nextState.isInvalidFrom) ||
-            (this.state.securityErrorOfFrom !== nextState.securityErrorOfFrom) ||
-            (this.state.body !== nextState.body) ||
-            (this.state.isOverBody !== nextState.isOverBody) ||
-            (nextState.errorMessages.length > 0) ||
-            (nextState.successMessages.length > 0);
+        return !shallowequal(this.props, nextProps) ||
+            !shallowequal(this.state, nextState) ||
+            !shallowequal(this.state.errorMessages, nextState.errorMessages) ||
+            !shallowequal(this.state.successMessages, nextState.successMessages);
     }
 
     render() {
