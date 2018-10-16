@@ -22,8 +22,8 @@ export default class Skills extends React.Component {
                         <li>HTML, CSS</li>
                         <li>JavaScript (ES2015 ~, TypeScript, Node.js)</li>
                         <li>React, Angular</li>
-                        <li>PHP, Go</li>
-                        <li>C, C++, UNIX programming</li>
+                        <li>Go</li>
+                        <li>C, C++, UNIX system call</li>
                         <li>Shellscript</li>
                         <li>MySQL, MongoDB</li>
                         <li>Nginx, Docker</li>
