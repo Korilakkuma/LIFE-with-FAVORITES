@@ -1,5 +1,5 @@
 const webpack                 = require('webpack');
-const ExtracktTextPlugin      = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          ExtracktTextPlugin.loader,
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader'
         ]
@@ -37,7 +37,7 @@ module.exports = {
         }
       }
     }),
-    new ExtracktTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'app.css',
       path: `${__dirname}/assets/`
     }),
