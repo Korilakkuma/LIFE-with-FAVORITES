@@ -41,7 +41,13 @@ module.exports = {
       filename: 'app.css',
       path: `${__dirname}/assets/`
     }),
-    new OptimizeCSSAssetsPlugin()
+    new OptimizeCSSAssetsPlugin({
+      cssProcessorOptions: {
+        map: {
+          inline: false
+        }
+      }
+    })
   ],
   devtool: 'source-map'
 };
