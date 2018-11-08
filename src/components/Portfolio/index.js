@@ -144,7 +144,7 @@ export default class Portfolio extends React.Component {
                 }
 
                 return (
-                    <li key={item.href} style={order ? { order } : null} aria-hidden={index !== currentItem}>
+                    <li key={item.href} style={order ? { order } : null} aria-hidden={index !== currentItem} tabIndex={index === currentItem ? null : '-1'}>
                         <a href={item.href} target="_blank" rel="noopener noreferrer" className="image-link">
                             {item.image}
                         </a>
