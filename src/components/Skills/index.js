@@ -18,19 +18,23 @@ export default class Skills extends React.Component {
             <section className={Skills.CLASS_NAME}>
                 <div className="aligner">
                     <h1>SKILLS</h1>
-                    <ul className="list-marker -white">
-                        <li>HTML, CSS</li>
-                        <li>JavaScript (ES2015 ~, TypeScript, Node.js)</li>
-                        <li>React, Angular</li>
-                        <li>Go</li>
-                        <li>C, C++, UNIX system call</li>
-                        <li>Shellscript</li>
-                        <li>MySQL, MongoDB</li>
-                        <li>Nginx, Docker</li>
-                        <li>macOS, Linux, zsh</li>
-                        <li>Vim</li>
-                        <li>Sketch, Photoshop</li> 
-                    </ul>
+                    <section>
+                        <h1>WEB FRONTEND</h1>
+                        <ul className="list-marker -white">
+                            <li>HTML, CSS</li>
+                            <li>JavaScript (ES2015 ~, TypeScript, Node.js)</li>
+                            <li>React, Redux</li>
+                            <li>Sketch</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h1>MULTIMEDIA</h1>
+                        <ul className="list-marker -white">
+                            <li>Web Music (Web Audio API ... etc)</li>
+                            <li>hls.js</li>
+                            <li>C, UNIX system call</li>
+                        </ul>
+                    </section>
                 </div>
             </section>
         );

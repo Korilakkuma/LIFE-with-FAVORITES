@@ -3,6 +3,10 @@
     background-color: var(--base-color);
 }
 
+.Skills section {
+    margin-top: 24px;
+}
+
 .Skills h1 {
     color: var(--white);
 }
