@@ -8,5 +8,9 @@
 }
 
 .Profile section {
+    margin-top: 24px;
+}
+
+.Profile section > p {
     margin-top: 12px;
 }
