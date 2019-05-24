@@ -225,7 +225,7 @@ export default class Footer extends React.Component {
                             </a>
                         </li>
                     </ul>
-                    <small className={`${Footer.CLASS_NAME}__copyright`}>Copyright (c) 2011 - 2018 Tomohiro IKEDA (Korilakkuma)</small>
+                    <small className={`${Footer.CLASS_NAME}__copyright`}>Copyright (c) 2011 Tomohiro IKEDA (Korilakkuma)</small>
                 </section>
             </footer>
         );

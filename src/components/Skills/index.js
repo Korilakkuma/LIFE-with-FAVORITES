@@ -30,9 +30,10 @@ export default class Skills extends React.Component {
                     <section>
                         <h1>MULTIMEDIA</h1>
                         <ul className="list-marker -white">
-                            <li>Web Music (Web Audio API ... etc)</li>
+                            <li>Web Audio API, Web MIDI API, WebRTC ... etc</li>
                             <li>hls.js</li>
-                            <li>C, UNIX system call</li>
+                            <li>C, C++, UNIX system call</li>
+                            <li>DSP (Digital Signal Processing)</li>
                         </ul>
                     </section>
                 </div>
