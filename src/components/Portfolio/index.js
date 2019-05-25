@@ -15,13 +15,13 @@ export default class Portfolio extends React.Component {
         this.items = [
             {
                 image : <img ref={node => this.image = node} src="assets/images/screenshot-x-sound.png" alt="X Sound" />,
-                href  : 'https://korilakkuma.github.io/X-Sound/',
+                href  : 'https://xsound.app/',
                 label : 'X Sound',
                 order : '2'
             },
             {
                 image : <img src="assets/images/screenshot-xsound.png" alt="XSound" />,
-                href  : 'https://korilakkuma.github.io/XSound/',
+                href  : 'https://xsound.jp/',
                 label : 'XSound',
                 order : '3'
             },
