@@ -121,6 +121,10 @@
     transition: opacity 0.6s ease 0s;
 }
 
+.Footer__sns > li > a > img[alt="Blog"] {
+    border-radius: 50%;
+}
+
 .Footer__sns > li > a:hover {
     opacity: 0.6;
 }
