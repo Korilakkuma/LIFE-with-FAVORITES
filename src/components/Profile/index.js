@@ -42,6 +42,9 @@ export default class Profile extends React.Component {
                             2012 年度に WEB プログラミング・WEB デザインに覚醒.
                             WEB プログラミング・WEB デザインに関しては完全に独学です.
                         </p>
+                        <p>
+                            現在は, WEB フロントエンドエンジニアから転身して, マルチメディアエンジニアとなり, 動画・オーディオを技術を日々追求しています.
+                        </p>
                     </section>
                     {/*
                     <section>
