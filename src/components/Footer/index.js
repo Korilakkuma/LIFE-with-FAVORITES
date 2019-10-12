@@ -215,7 +215,7 @@ export default class Footer extends React.Component {
                             </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/forever120527" target="_blank" rel="noopener noreferrer" className="image-link">
+                            <a href="https://twitter.com/xmusicjp" target="_blank" rel="noopener noreferrer" className="image-link">
                                 <img src="assets/images/icon-twitter.png" alt="Twitter" width="32" height="32" />
                             </a>
                         </li>
