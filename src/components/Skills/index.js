@@ -21,18 +21,18 @@ export default class Skills extends React.Component {
                     <section>
                         <h1>MULTIMEDIA</h1>
                         <ul className="list-marker -white">
-                            <li>Web Music (Web Audio API,  WebRTC ... etc)</li>
-                            <li>hls.js / shaka-packager contributor</li>
-                            <li>C / C++, UNIX system call</li>
-                            <li>DSP (Digital Signal Processing)</li>
+                            <li>Web Music (Web Audio API,  WebRTC ...)</li>
+                            <li>Streaming (<a href="https://github.com/video-dev/hls.js/graphs/contributors" target="_blank" rel="noopener noreferrer">@hls.js</a> / <a href="https://github.com/google/shaka-packager/graphs/contributors" target="_blank" rel="noopener noreferrer">@shaka-packager</a>)</li>
+                            <li>Sound Signal Processing</li>
                             <li>Computer Science</li>
+                            <li>C / C++, UNIX system call</li>
                         </ul>
                     </section>
                     <section>
                         <h1>WEB FRONTEND</h1>
                         <ul className="list-marker -white">
-                            <li>HTML, CSS</li>
-                            <li>JavaScript (ES2015 ~, TypeScript, Node.js)</li>
+                            <li>HTML / CSS</li>
+                            <li>JavaScript (ES2015 ~ / TypeScript / Node.js)</li>
                             <li>Sketch</li>
                         </ul>
                     </section>
