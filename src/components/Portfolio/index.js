@@ -42,7 +42,7 @@ export default class Portfolio extends React.Component {
                 href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-web-sounder/',
                 label : 'WEB SOUNDER',
                 order : '1'
-            },
+            }
         ];
 
         this.image = null;
@@ -67,7 +67,7 @@ export default class Portfolio extends React.Component {
     next() {
         const { currentItem, slide } = this.state;
 
-        const nextIndex = (currentItem === (this.items.length - 1)) ? 0 : (currentItem + 1); 
+        const nextIndex = (currentItem === (this.items.length - 1)) ? 0 : (currentItem + 1);
 
         this.setState({
             currentItem : nextIndex,
@@ -107,9 +107,9 @@ export default class Portfolio extends React.Component {
 
         // Use `span` instead of `button` for iOS
         return (
-          <ol className={`${Portfolio.CLASS_NAME}__carouselNav`}>
-            {this.items.map((item, index) => <li key={item.href}><span data-index={index} role="button" onClick={this.onClickNavButton} disabled={index === currentItem} aria-label={item.label} className={index === currentItem ? '-active' : ''}></span></li>)}
-          </ol>
+            <ol className={`${Portfolio.CLASS_NAME}__carouselNav`}>
+                {this.items.map((item, index) => <li key={item.href}><span data-index={index} role="button" onClick={this.onClickNavButton} disabled={index === currentItem} aria-label={item.label} className={index === currentItem ? '-active' : ''}></span></li>)}
+            </ol>
         );
     }
 
@@ -135,23 +135,23 @@ export default class Portfolio extends React.Component {
         };
 
         return (
-          <ol style={style}>
-            {this.items.map((item, index) => {
-                let order = orderList.indexOf(index) + 2;
+            <ol style={style}>
+                {this.items.map((item, index) => {
+                    let order = orderList.indexOf(index) + 2;
 
-                if (order > this.items.length) {
-                    order = order - this.items.length;
-                }
+                    if (order > this.items.length) {
+                        order = order - this.items.length;
+                    }
 
-                return (
-                    <li key={item.href} style={order ? { order } : null} aria-hidden={index !== currentItem} tabIndex={index === currentItem ? null : '-1'}>
-                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="image-link">
-                            {item.image}
-                        </a>
-                    </li>
-                );
-            })}
-          </ol>
+                    return (
+                        <li key={item.href} style={order ? { order } : null} aria-hidden={index !== currentItem} tabIndex={index === currentItem ? null : '-1'}>
+                            <a href={item.href} target="_blank" rel="noopener noreferrer" className="image-link">
+                                {item.image}
+                            </a>
+                        </li>
+                    );
+                })}
+            </ol>
         );
     }
 

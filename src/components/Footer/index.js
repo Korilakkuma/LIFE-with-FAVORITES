@@ -197,12 +197,12 @@ export default class Footer extends React.Component {
                                 <li><button type="submit" tabIndex="4" className={`${Footer.CLASS_NAME}__send`}>SEND</button></li>
                             </ul>
                         </form>
-                        {errorMessages.length > 0 ?
-                            <ul className={`${Footer.CLASS_NAME}__errors list-marker -white`}>
+                        {errorMessages.length > 0
+                            ? <ul className={`${Footer.CLASS_NAME}__errors list-marker -white`}>
                                 {errorMessages.map(message => <li key={message} role="alert" aria-live="assertive">{message}</li>)}
                             </ul> : null}
-                        {successMessages.length > 0 ?
-                            <ul className={`${Footer.CLASS_NAME}__success list-marker -white`}>
+                        {successMessages.length > 0
+                            ? <ul className={`${Footer.CLASS_NAME}__success list-marker -white`}>
                                 {successMessages.map(message => <li key={message}>{message}</li>)}
                             </ul> : null}
                     </fieldset>
