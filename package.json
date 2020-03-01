@@ -9,8 +9,7 @@
     "lint:css": "stylelint ./src/*.css ./src/**/*.css",
     "lint": "run-p lint:js lint:css",
     "build": "npm run clean && webpack --progress --mode production",
-    "start": "webpack-dev-server --progress",
-    "stop": "docker stop webserver && docker rm webserver"
+    "dev": "webpack-dev-server --progress"
   },
   "repository": {
     "type": "git",
