@@ -17,10 +17,10 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "src/**/*.js": [
       "eslint --fix"
     ],
-    "*.css": [
+    "src/**/*.css": [
       "stylelint --fix"
     ]
   },
