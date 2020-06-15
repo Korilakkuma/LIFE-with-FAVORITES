@@ -146,10 +146,16 @@ export default class Footer extends React.Component {
 
         const options = {
             method,
-            // headers : new Headers({ 'Content-Type' : 'application/x-www-form-url-encoded' }),
             body : form,
             mode : 'cors'
         };
+
+        // const options = {
+        //     method,
+        //     headers : new Headers({ 'Content-Type' : 'application/x-www-form-url-encoded' }),
+        //     body    : `subject=${encodeURIComponent(subject)}&from=${encodeURIComponent{from}&body=${encodeURIComponent(body)}`,
+        //     mode    : 'cors'
+        // };
 
         fetch(action, options).then(response => {
             return response.json();
