@@ -227,7 +227,7 @@ export default class Footer extends React.Component {
                         </li>
                         <li>
                             <a href="https://art-of-life.jp" target="_blank" rel="noopener noreferrer" className="image-link">
-                                <img src="https://www.gravatar.com/avatar/2ec58acf24bf70ddd571739af8e934e7?s=100&d=identicon" alt="Blog" width="32" height="32" />
+                                <img src="assets/images/icon-blog.jpeg" alt="Blog" width="32" height="32" />
                             </a>
                         </li>
                     </ul>
