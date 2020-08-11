@@ -1,38 +1,38 @@
 .text-ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .image-link:hover,
 .image-link:focus,
 .image-link:active {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .list-marker li,
 .list-marker dt {
-    margin: 16px 0;
+  margin: 16px 0;
 }
 
 .list-marker li::before,
 .list-marker dt::before {
-    content: "";
-    display: inline-block;
-    margin-right: 8px;
-    border-top: 10px solid transparent;
-    border-left: 15px solid var(--base-color);
-    border-bottom: 10px solid transparent;
-    vertical-align: -4px;
+  content: "";
+  display: inline-block;
+  margin-right: 8px;
+  border-top: 10px solid transparent;
+  border-left: 15px solid var(--base-color);
+  border-bottom: 10px solid transparent;
+  vertical-align: -4px;
 }
 
 .list-marker.-white li::before,
 .list-marker.-white dt::before {
-    content: "";
-    display: inline-block;
-    margin-right: 8px;
-    border-top: 10px solid transparent;
-    border-left: 15px solid var(--white);
-    border-bottom: 10px solid transparent;
-    vertical-align: -4px;
+  content: "";
+  display: inline-block;
+  margin-right: 8px;
+  border-top: 10px solid transparent;
+  border-left: 15px solid var(--white);
+  border-bottom: 10px solid transparent;
+  vertical-align: -4px;
 }

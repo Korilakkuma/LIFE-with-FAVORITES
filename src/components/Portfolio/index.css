@@ -1,84 +1,87 @@
 .Portfolio {
-    color: var(--gray);
-    background-color: var(--white);
+  color: var(--gray);
+  background-color: var(--white);
 }
 
 .Portfolio h1 {
-    color: var(--base-color);
+  color: var(--base-color);
 }
 
 .Portfolio__carousel {
-    margin: 12px auto 0;
-    max-width: 800px;
-    /* width: 100vw; */
-    /* width: calc(429 * ((100vw - 320px) / 960) + 300px); */
-    overflow-x: hidden;
+  margin: 12px auto 0;
+  max-width: 800px;
+
+  /* width: 100vw; */
+
+  /* width: calc(429 * ((100vw - 320px) / 960) + 300px); */
+
+  overflow-x: hidden;
 }
 
 .Portfolio__carousel > ol {
-    display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-justify-content: center;
-    justify-content: center;
-    position: relative;
-    transition: transform 0.3s ease-out;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s ease-out;
+}
+
+.Portfolio__carouselNav > li {
+  display: inline-block;
+  margin-left: 4px;
 }
 
 .Portfolio__carousel > ol > li,
 .Portfolio__carousel > ol > li > a {
-    display: block;
+  display: block;
 }
 
 .Portfolio__carousel > ol > li > a > img {
-    max-width: 400px;
-    width: 100vw;
+  max-width: 400px;
+  width: 100vw;
 }
 
 .Portfolio__carousel [aria-hidden="true"] {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .Portfolio__carouselNav {
-    display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    margin-top: 12px;
-}
-
-.Portfolio__carouselNav > li {
-    display: inline-block;
-    margin-left: 4px;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-top: 12px;
 }
 
 .Portfolio__carouselNav > li > span {
-    display: inline-block;
-    border: none;
-    background: none;
-    cursor: pointer;
-    width: 16px;
-    height: 16px;
-    background-color: var(--assort-color);
-    border-radius: 8px;
-    transition: background-color 0.6s ease 0s, opacity 0.6s ease 0s;
+  display: inline-block;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  background-color: var(--assort-color);
+  border-radius: 8px;
+  transition: background-color 0.6s ease 0s, opacity 0.6s ease 0s;
 }
 
 .Portfolio__carouselNav > li > span:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .Portfolio__carouselNav > li > span:focus {
-    outline: 2px dotted var(--assort-color);
+  outline: 2px dotted var(--assort-color);
 }
 
 .Portfolio__carouselNav > li > span.-active {
-    background-color: var(--base-color);
+  background-color: var(--base-color);
 }

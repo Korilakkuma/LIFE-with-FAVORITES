@@ -1,16 +1,16 @@
 .Profile {
-    color: var(--white);
-    background-color: var(--base-color);
+  color: var(--white);
+  background-color: var(--base-color);
 }
 
 .Profile h1 {
-    color: var(--white);
+  color: var(--white);
 }
 
 .Profile section {
-    margin-top: 24px;
+  margin-top: 24px;
 }
 
 .Profile section > p {
-    margin-top: 12px;
+  margin-top: 12px;
 }
