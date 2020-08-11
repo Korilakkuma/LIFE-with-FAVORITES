@@ -103,6 +103,11 @@ export default class Portfolio extends React.Component {
     this.timer = window.setInterval(this.next, 3000);
   }
 
+  componentWillUnmount() {
+    window.clearInterval(this.timer);
+    this.timer = null;
+  }
+
   renderNav() {
     const { currentItem } = this.state;
 
