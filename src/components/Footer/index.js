@@ -3,7 +3,7 @@
 import React from 'react';
 import shallowequal from 'shallowequal';
 
-export default class Footer extends React.Component {
+export class Footer extends React.Component {
   static CLASS_NAME = 'Footer';
 
   static MAX_LENGTH_OF_SUBJECT = 50;

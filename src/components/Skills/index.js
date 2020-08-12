@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class Skills extends React.Component {
+export class Skills extends React.Component {
   static CLASS_NAME = 'Skills';
 
   constructor(props) {

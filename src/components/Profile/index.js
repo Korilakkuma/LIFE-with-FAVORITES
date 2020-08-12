@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class Profile extends React.Component {
+export class Profile extends React.Component {
  static CLASS_NAME = 'Profile';
 
  constructor(props) {

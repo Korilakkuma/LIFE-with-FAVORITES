@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class Portfolio extends React.Component {
+export class Portfolio extends React.Component {
   static CLASS_NAME = 'Portfolio';
 
   constructor(props) {

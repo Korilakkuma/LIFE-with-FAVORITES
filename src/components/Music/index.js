@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class Music extends React.Component {
+export class Music extends React.Component {
   static CLASS_NAME = 'Music';
 
   constructor(props) {
