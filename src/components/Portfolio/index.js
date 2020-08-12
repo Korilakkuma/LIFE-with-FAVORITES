@@ -15,38 +15,43 @@ export default class Portfolio extends React.Component {
 
     this.items = [
       {
-        image : <img ref={node => this.image = node} src="assets/images/screenshot-x-sound.png" alt="X Sound" />,
+        src   : 'assets/images/screenshot-x-sound.png',
+        alt   : 'XSound.app',
         href  : 'https://xsound.app/',
-        label : 'X Sound',
+        label : 'XSound.app',
         order : '2'
       },
       {
-        image : <img src="assets/images/screenshot-xsound.png" alt="XSound" />,
+        src   : 'assets/images/screenshot-xsound.png',
+        alt   : 'XSound',
         href  : 'https://xsound.jp/',
         label : 'XSound',
         order : '3'
       },
       {
-        image : <img src="assets/images/screenshot-instant-canvas-presentation.png" alt="Instant Canvas Presentation" />,
+        src   : 'assets/images/screenshot-instant-canvas-presentation.png',
+        alt   : 'Instant Canvas Presentation',
         href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-instant-canvas-presentation/',
         label : 'Instant Canvas Presentation',
         order : '4'
       },
       {
-        image : <img src="assets/images/screenshot-music-v.png" alt="Music V" />,
+        src   : 'assets/images/screenshot-music-v.png',
+        alt   : 'Music V',
         href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-music-v/',
         label : 'Music V',
         order : '5'
       },
       {
-        image : <img src="assets/images/screenshot-web-sounder.png" alt="WEB SOUNDER" />,
+        src   : 'assets/images/screenshot-web-sounder.png',
+        alt   : 'WEB SOUNDER',
         href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-web-sounder/',
         label : 'WEB SOUNDER',
         order : '1'
       }
     ];
 
-    this.image = null;
+    this.imageRef = React.createRef();
 
     this.timer = null;
 
@@ -132,7 +137,7 @@ export default class Portfolio extends React.Component {
       orderList[j] = i;
     }
 
-    const offset           = this.image ? this.image.width : 400;
+    const offset           = this.imageRef.current !== null ? this.imageRef.current.width : 400;
     const slideAmountRight = (slide * -offset) + offset;
     const slideAmountLeft  = slide * offset;
     const style            = {
@@ -143,6 +148,8 @@ export default class Portfolio extends React.Component {
     return (
       <ol style={style}>
         {this.items.map((item, index) => {
+          const { src, alt, href } = item;
+
           let order = orderList.indexOf(index) + 2;
 
           if (order > this.items.length) {
@@ -150,9 +157,9 @@ export default class Portfolio extends React.Component {
           }
 
           return (
-            <li key={item.href} style={order ? { order } : null} aria-hidden={index !== currentItem} tabIndex={index === currentItem ? null : '-1'}>
+            <li key={href} style={order ? { order } : null} aria-hidden={index !== currentItem} tabIndex={index === currentItem ? null : '-1'}>
               <a href={item.href} target="_blank" rel="noopener noreferrer" className="image-link">
-                {item.image}
+                <img ref={this.imageRef} src={src} alt={alt} />
               </a>
             </li>
           );
