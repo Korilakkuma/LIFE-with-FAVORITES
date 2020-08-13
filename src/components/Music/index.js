@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 
 export class Music extends React.Component {
