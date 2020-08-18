@@ -15,8 +15,8 @@ export const App = () => {
         <Portfolio />
         <Skills />
         <Music />
-        <Footer />
       </main>
+      <Footer />
     </React.Fragment>
   );
 };
