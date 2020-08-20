@@ -110,6 +110,10 @@ export class Footer extends React.Component {
       errorMessages.push('Invalid subject');
     }
 
+    if (from.length === 0) {
+      errorMessages.push('Please type mail address');
+    }
+
     if (isInvalidFrom) {
       errorMessages.push('Mail address is invalid');
     }
