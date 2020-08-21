@@ -111,15 +111,15 @@ export class Footer extends React.Component {
     }
 
     if (from.length === 0) {
-      errorMessages.push('Please type mail address');
+      errorMessages.push('Please type email address');
     }
 
     if (isInvalidFrom) {
-      errorMessages.push('Mail address is invalid');
+      errorMessages.push('Email address is invalid');
     }
 
     if (securityErrorOfFrom) {
-      errorMessages.push('Invalid mail address');
+      errorMessages.push('Invalid email address');
     }
 
     if (body.length === 0) {
