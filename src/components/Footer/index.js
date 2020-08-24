@@ -202,7 +202,7 @@ export class Footer extends React.Component {
                 <dd><textarea id="textarea-body" name="body" tabIndex="3" onChange={this.onChangeToBody}></textarea></dd>
               </dl>
               <ul>
-                <li><button type="reset" tabinedx="5" onClick={this.onClickReset} className={`${Footer.CLASS_NAME}__reset`}>RESET</button></li>
+                <li><button type="reset" tabIndex="5" onClick={this.onClickReset} className={`${Footer.CLASS_NAME}__reset`}>RESET</button></li>
                 <li><button type="submit" tabIndex="4" className={`${Footer.CLASS_NAME}__send`}>SEND</button></li>
               </ul>
             </form>
