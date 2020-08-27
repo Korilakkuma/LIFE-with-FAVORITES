@@ -230,7 +230,7 @@ export class Footer extends React.Component {
             </li>
             <li>
               <a href="https://art-of-life.jp" target="_blank" rel="noopener noreferrer" className="image-link">
-                <img src="assets/images/icon-blog.jpeg" alt="Blog" width="32" height="32" />
+                <img src="https://art-of-life.jp/apple-touch-icon.png" alt="Blog" width="32" height="32" />
               </a>
             </li>
           </ul>
