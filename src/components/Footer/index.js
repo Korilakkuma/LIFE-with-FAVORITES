@@ -139,26 +139,18 @@ export class Footer extends React.Component {
       return;
     }
 
-    const form = new FormData();
+    const form = new URLSearchParams();
 
-    form.append('subject', subject);
-    form.append('from',    from);
-    form.append('body',    body);
+    form.set('subject', subject);
+    form.set('from',    from);
+    form.set('body',    body);
 
     const { action, method } = event.currentTarget;
 
     const options = {
       method,
-      body : form,
-      mode : 'cors'
+      body : form
     };
-
-    // const options = {
-    //   method,
-    //   headers : new Headers({ 'Content-Type' : 'application/x-www-form-url-encoded' }),
-    //   body    : `subject=${encodeURIComponent(subject)}&from=${encodeURIComponent{from}&body=${encodeURIComponent(body)}`,
-    //   mode    : 'cors'
-    // };
 
     fetch(action, options).then(response => {
       return response.json();
