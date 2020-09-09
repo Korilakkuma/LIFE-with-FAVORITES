@@ -11,6 +11,7 @@
   /* margin-top: -4vh; */
   font-size: 4rem;
   animation: animation-fade-in 1s ease-in-out normal 1 0s forwards;
+  text-transform: uppercase;
 }
 
 .Header h1 > span {

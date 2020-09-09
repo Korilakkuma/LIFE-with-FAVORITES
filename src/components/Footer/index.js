@@ -181,7 +181,7 @@ export class Footer extends React.Component {
     return (
       <footer className={Footer.CLASS_NAME}>
         <div className="aligner">
-          <h1>CONTACT</h1>
+          <h1>Contact</h1>
           <fieldset>
             <legend hidden>Contact Form</legend>
             <form noValidate action="https://weblike-curtaincall.ssl-lolipop.jp/php/contact" method="post" onSubmit={this.onSubmit} className={`${Footer.CLASS_NAME}__contact`}>
@@ -194,8 +194,8 @@ export class Footer extends React.Component {
                 <dd><textarea id="textarea-body" name="body" tabIndex="3" onChange={this.onChangeToBody}></textarea></dd>
               </dl>
               <ul>
-                <li><button type="reset" tabIndex="5" onClick={this.onClickReset} className={`${Footer.CLASS_NAME}__reset`}>RESET</button></li>
-                <li><button type="submit" tabIndex="4" className={`${Footer.CLASS_NAME}__send`}>SEND</button></li>
+                <li><button type="reset" tabIndex="5" onClick={this.onClickReset} className={`${Footer.CLASS_NAME}__reset`}>Reset</button></li>
+                <li><button type="submit" tabIndex="4" className={`${Footer.CLASS_NAME}__send`}>Send</button></li>
               </ul>
             </form>
             {errorMessages.length > 0

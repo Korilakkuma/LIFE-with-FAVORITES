@@ -5,6 +5,7 @@
 
 .Portfolio h1 {
   color: var(--base-color);
+  text-transform: uppercase;
 }
 
 .Portfolio__carousel {

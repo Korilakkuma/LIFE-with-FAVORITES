@@ -170,7 +170,7 @@ export class Portfolio extends React.Component {
     return (
       <section className={Portfolio.CLASS_NAME}>
         <div className="aligner">
-          <h1>PORTFOLIO</h1>
+          <h1>Portfolio</h1>
           <div className={`${Portfolio.CLASS_NAME}__carousel`}>
             {this.renderItems()}
           </div>

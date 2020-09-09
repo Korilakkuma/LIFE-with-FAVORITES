@@ -5,6 +5,7 @@
 
 .Music h1 {
   color: var(--base-color);
+  text-transform: uppercase;
 }
 
 .Music__grid {

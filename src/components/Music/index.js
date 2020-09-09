@@ -15,7 +15,7 @@ export class Music extends React.Component {
     return (
       <section className={Music.CLASS_NAME}>
         <div className="aligner">
-          <h1>MUSIC</h1>
+          <h1>Music</h1>
           <ul className={`${Music.CLASS_NAME}__grid`}>
             {/* <li><iframe key="cjLcjjfJmVw" width="560" height="315" src="https://www.youtube.com/embed/cjLcjjfJmVw" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe></li> */}
             <li><iframe key="Xs_u5Cx5U1I" width="560" height="315" src="https://www.youtube.com/embed/Xs_u5Cx5U1I" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe></li>

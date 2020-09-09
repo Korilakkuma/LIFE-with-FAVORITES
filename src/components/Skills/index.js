@@ -15,7 +15,7 @@ export class Skills extends React.Component {
     return (
       <section className={Skills.CLASS_NAME}>
         <div className="aligner">
-          <h1>SKILLS</h1>
+          <h1>Skills</h1>
           <section>
             <h1>MULTIMEDIA</h1>
             <ul className="list-marker -white">
@@ -25,7 +25,7 @@ export class Skills extends React.Component {
             </ul>
           </section>
           <section>
-            <h1>WEB FRONTEND</h1>
+            <h1>Web Frontend</h1>
             <ul className="list-marker -white">
               <li>HTML / CSS</li>
               <li>JavaScript (TypeScript / Node.js)</li>

@@ -12,6 +12,7 @@
 
 .Footer h1 {
   color: var(--white);
+  text-transform: uppercase;
 }
 
 .Footer fieldset {
@@ -108,12 +109,14 @@
   border: none;
   color: var(--base-color);
   background-color: var(--white);
+  text-transform: uppercase;
 }
 
 .Footer__reset {
   border: 1px solid var(--white);
   color: var(--white);
   background-color: var(--base-color);
+  text-transform: uppercase;
 }
 
 .Footer__contact .-invalid {
