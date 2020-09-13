@@ -63,3 +63,12 @@ a:hover,
 a:active {
   color: var(--assort-color);
 }
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
