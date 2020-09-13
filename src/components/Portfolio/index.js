@@ -138,9 +138,10 @@ export class Portfolio extends React.Component {
     const offset           = this.imageRef.current !== null ? this.imageRef.current.width : 400;
     const slideAmountRight = (slide * -offset) + offset;
     const slideAmountLeft  = slide * offset;
-    const style            = {
-      transform : `translateX(${slideAmountRight}px)`,
-      left      : `${slideAmountLeft}px`
+
+    const style = {
+      transform: `translateX(${slideAmountRight}px)`,
+      left: `${slideAmountLeft}px`
     };
 
     return (
