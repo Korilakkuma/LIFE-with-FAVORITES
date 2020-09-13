@@ -16,6 +16,7 @@
       "SwitchCase": 1,
     }],
     "key-spacing": 0,
+    "operator-linebreak": 0,
     "no-case-declarations": 0,
     "no-console": 1,
     "no-constant-condition": 0,
