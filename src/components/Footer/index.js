@@ -1,5 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import shallowequal from 'shallowequal';
+
+const Modal = function(props) {
+  const { isShow, children, onClickClose } = props;
+
+  return (
+    <div className="Modal" hidden={!isShow}>
+      <div className="Modal__overlay" role="button" onClick={onClickClose} />
+      <div className="Modal__contents">{children}</div>
+    </div>
+  );
+};
+
+Modal.propTypes = {
+  isShow       : PropTypes.bool.isRequired,
+  children     : PropTypes.node,
+  onClickClose : PropTypes.func
+};
 
 export class Footer extends React.Component {
   static CLASS_NAME = 'Footer';
@@ -20,7 +38,8 @@ export class Footer extends React.Component {
       body                   : '',
       isOverBody             : false,
       errorMessages          : [],
-      successMessages        : []
+      successMessages        : [],
+      isShowModal            : false
     };
 
     this.onChangeToSubject = this.onChangeToSubject.bind(this);
@@ -28,6 +47,7 @@ export class Footer extends React.Component {
     this.onChangeToBody    = this.onChangeToBody.bind(this);
     this.onClickReset      = this.onClickReset.bind(this);
     this.onSubmit          = this.onSubmit.bind(this);
+    this.onClickClose      = this.onClickClose.bind(this);
   }
 
   onChangeToSubject(event) {
@@ -62,11 +82,13 @@ export class Footer extends React.Component {
     });
   }
 
-  onClickReset(event) {
+  onClickReset() {
+    /*
     if (!window.confirm('Reset contents. OK ?')) {
       event.preventDefault();
       return;
     }
+    */
 
     this.setState({
       subject                : '',
@@ -131,13 +153,19 @@ export class Footer extends React.Component {
     }
 
     if (errorMessages.length > 0) {
-      this.setState({ errorMessages });
+      this.setState({
+        errorMessages,
+        isShowModal : true
+      });
+
       return;
     }
 
+    /*
     if (!window.confirm('Send these contents. OK ?')) {
       return;
     }
+    */
 
     const form = new URLSearchParams();
 
@@ -155,10 +183,20 @@ export class Footer extends React.Component {
     fetch(action, options).then(response => {
       return response.json();
     }).then(data => {
-      this.setState({ successMessages : data.messages });
+      this.setState({
+        successMessages : data.messages,
+        isShowModal     : true
+      });
     }).catch(error => {
-      window.alert(error);
+      this.setState({
+        errorMessages : [error.message],
+        isShowModal   : true
+      });
     });
+  }
+
+  onClickClose() {
+    this.setState({ isShowModal : false });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -175,7 +213,8 @@ export class Footer extends React.Component {
       body,
       isOverBody,
       errorMessages,
-      successMessages
+      successMessages,
+      isShowModal
     } = this.state;
 
     return (
@@ -198,15 +237,17 @@ export class Footer extends React.Component {
                 <li><button type="submit" tabIndex="4" className={`${Footer.CLASS_NAME}__send`}>Send</button></li>
               </ul>
             </form>
-            {errorMessages.length > 0
-              ? <ul className={`${Footer.CLASS_NAME}__errors list-marker -white`}>
+          </fieldset>
+          <Modal isShow={isShowModal} onClickClose={this.onClickClose}>
+            {errorMessages.length > 0 ?
+              <ul className={`${Footer.CLASS_NAME}__errors list-marker`}>
                 {errorMessages.map(message => <li key={message} aria-live="assertive">{message}</li>)}
               </ul> : null}
-            {successMessages.length > 0
-              ? <ul className={`${Footer.CLASS_NAME}__success list-marker -white`}>
+            {successMessages.length > 0 ?
+              <ul className={`${Footer.CLASS_NAME}__success list-marker`}>
                 {successMessages.map(message => <li key={message}>{message}</li>)}
               </ul> : null}
-          </fieldset>
+          </Modal>
         </div>
         <section className={`${Footer.CLASS_NAME}__bottom`}>
           <ul className={`${Footer.CLASS_NAME}__sns`}>
