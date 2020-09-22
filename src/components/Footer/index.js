@@ -32,6 +32,7 @@ export class Footer extends React.Component {
     super(props);
 
     this.state = {
+      disabled               : false,
       subject                : '',
       isOverSubject          : false,
       securityErrorOfSubject : false,
@@ -183,17 +184,21 @@ export class Footer extends React.Component {
       body : form
     };
 
-    fetch(action, options).then(response => {
-      return response.json();
-    }).then(data => {
-      this.setState({
-        successMessages : data.messages,
-        isShowModal     : true
-      });
-    }).catch(error => {
-      this.setState({
-        errorMessages : [error.message],
-        isShowModal   : true
+    this.setState({ disabled : true }, () => {
+      fetch(action, options).then(response => {
+        return response.json();
+      }).then(data => {
+        this.setState({
+          successMessages : data.messages,
+          isShowModal     : true
+        });
+      }).catch(error => {
+        this.setState({
+          errorMessages : [error.message],
+          isShowModal   : true
+        });
+      }).finally(() => {
+        this.setState({ disabled : false });
       });
     });
   }
@@ -217,7 +222,8 @@ export class Footer extends React.Component {
       isOverBody,
       errorMessages,
       successMessages,
-      isShowModal
+      isShowModal,
+      disabled
     } = this.state;
 
     return (
@@ -237,7 +243,7 @@ export class Footer extends React.Component {
               </dl>
               <ul>
                 <li><button type="reset" tabIndex="5" onClick={this.onClickReset} className={`${Footer.CLASS_NAME}__reset`}>Reset</button></li>
-                <li><button type="submit" tabIndex="4" className={`${Footer.CLASS_NAME}__send`}>Send</button></li>
+                <li><button type="submit" disabled={disabled} tabIndex="4" className={`${Footer.CLASS_NAME}__send`}>Send</button></li>
               </ul>
             </form>
           </fieldset>
