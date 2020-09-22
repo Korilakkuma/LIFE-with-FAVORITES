@@ -67,6 +67,9 @@ a:active {
 button,
 [role="button"] {
   cursor: pointer;
+  outline: none;
+  border: none;
+  background: none;
 }
 
 [hidden] {
