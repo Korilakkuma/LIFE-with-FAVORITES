@@ -8,7 +8,10 @@ const Modal = function(props) {
   return (
     <div className="Modal" hidden={!isShow}>
       <div className="Modal__overlay" role="button" onClick={onClickClose} />
-      <div className="Modal__contents">{children}</div>
+      <div className="Modal__inner">
+        <span className="Modal__closer" role="button" aria-label="close modal" onClick={onClickClose}>X</span>
+        <div className="Modal__contents">{children}</div>
+      </div>
     </div>
   );
 };

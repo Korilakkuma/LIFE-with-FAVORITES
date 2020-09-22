@@ -176,10 +176,34 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.Modal__contents {
+.Modal__inner {
   position: fixed;
   z-index: 9999;
   padding: 12px 24px;
   color: var(--base-color);
   background-color: var(--white);
+}
+
+.Modal__closer {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  z-index: 9999;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  font-size: 12px;
+  color: var(--white);
+  background-color: var(--assort-color);
+  transition: background-color 0.6s ease 0s;
+}
+
+.Modal__closer:hover {
+  background-color: var(--base-color);
+}
+
+.Modal__closer:focus {
+  outline: 2px dotted var(--assort-color);
 }
