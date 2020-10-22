@@ -19,9 +19,9 @@ export class Skills extends React.Component {
           <section>
             <h2>MULTIMEDIA</h2>
             <ul className="list-marker -white">
-              <li>Audio Signal Processing</li>
-              <li>C / C++, UNIX system call</li>
               <li>Web Music (Web Audio API, WebRTC ...)</li>
+              <li>C/C++, PDP 11/40, UNIX V6</li>
+              <li>Audio Signal Processing</li>
             </ul>
           </section>
           <section>
