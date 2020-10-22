@@ -40,7 +40,7 @@ export class Header extends React.Component {
               <use xlinkHref="assets/images/logo.svg" />
             </svg>
           */}
-          {/* <h1>LIFE <span>with</span> FAVORITES</h1> */}
+          {/* <h2>LIFE <span>with</span> FAVORITES</h2> */}
           <h2 onMouseEnter={this.onMouseEnter} className={this.state.isAnimation ? '-animation' : ''}>
             Tomohiro IKEDAの<span onAnimationEnd={this.onAnimationEnd} role="presentation">オ</span><span onAnimationEnd={this.onAnimationEnd} role="presentation">キ</span><span onAnimationEnd={this.onAnimationEnd} role="presentation">ニ</span><span onAnimationEnd={this.onAnimationEnd} role="presentation">イ</span><span onAnimationEnd={this.onAnimationEnd} role="presentation">リ</span>生活サイト
           </h2>

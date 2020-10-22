@@ -17,7 +17,7 @@ export class Skills extends React.Component {
         <div className="aligner">
           <h1>Skills</h1>
           <section>
-            <h1>MULTIMEDIA</h1>
+            <h2>MULTIMEDIA</h2>
             <ul className="list-marker -white">
               <li>Audio Signal Processing</li>
               <li>C / C++, UNIX system call</li>
@@ -25,7 +25,7 @@ export class Skills extends React.Component {
             </ul>
           </section>
           <section>
-            <h1>Web Frontend</h1>
+            <h2>Web Frontend</h2>
             <ul className="list-marker -white">
               <li>HTML / CSS</li>
               <li>JavaScript (TypeScript / Node.js)</li>

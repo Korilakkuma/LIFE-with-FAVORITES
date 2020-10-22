@@ -17,7 +17,7 @@ export class Profile extends React.Component {
        <div className="aligner">
          <h1>Profile</h1>
          <section>
-           <h1>Name</h1>
+           <h2>Name</h2>
            <p>Web では, <b>Korilakkuma</b> や <b>rilakkuma3xjapan</b> として活動していることが多いです.</p>
          </section>
          {/*
@@ -31,7 +31,7 @@ export class Profile extends React.Component {
            </section>
          */}
          <section>
-           <h1>Career</h1>
+           <h2>Career</h2>
            <p>
              大学は肩書き上, 建築を専攻 (興味なしでしたが ...) .
              大学 4 回生のときに, コンピュータサイエンスに興味をもち,
