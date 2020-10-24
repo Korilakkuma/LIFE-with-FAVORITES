@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import shallowequal from 'shallowequal';
 
-const Modal = function(props) {
+const Modal = props => {
   const { isShow, children, onClickClose } = props;
 
   return (
@@ -248,14 +248,14 @@ export class Footer extends React.Component {
             </form>
           </fieldset>
           <Modal isShow={isShowModal} onClickClose={this.onClickClose}>
-            {errorMessages.length > 0 ?
+            {errorMessages.length > 0 ? (
               <ul className={`${Footer.CLASS_NAME}__errors list-marker`}>
                 {errorMessages.map(message => <li key={message} aria-live="assertive">{message}</li>)}
-              </ul> : null}
-            {successMessages.length > 0 ?
+              </ul>) : null}
+            {successMessages.length > 0 ? (
               <ul className={`${Footer.CLASS_NAME}__success list-marker`}>
                 {successMessages.map(message => <li key={message}>{message}</li>)}
-              </ul> : null}
+              </ul>) : null}
           </Modal>
         </div>
         <section className={`${Footer.CLASS_NAME}__bottom`}>

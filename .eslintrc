@@ -27,6 +27,7 @@
     "no-unused-vars": [1, {"vars": "all", "args": "after-used"}],
     "no-useless-constructor": 0,
     "no-var": 1,
+    "multiline-ternary": [2, "never"],
     "prefer-promise-reject-errors": 0,
     "quotes": [2, "single"],
     "quote-props": 0,
