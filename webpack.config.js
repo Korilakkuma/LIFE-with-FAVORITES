@@ -40,8 +40,7 @@ module.exports = {
       }
     }),
     new MiniCssExtractPlugin({
-      filename: 'app.css',
-      path: `${__dirname}/assets/`
+      filename: 'app.css'
     }),
     new OptimizeCSSAssetsPlugin({
       cssProcessorOptions: {
