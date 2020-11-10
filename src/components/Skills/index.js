@@ -20,7 +20,7 @@ export class Skills extends React.Component {
             <h2>MULTIMEDIA</h2>
             <ul className="list-marker -white">
               <li>Web Music (Web Audio API, WebRTC ...)</li>
-              <li>C/C++, PDP 11/40, UNIX V6</li>
+              <li>C/C++, PDP 11/40 Assembly, UNIX V6</li>
               <li>Audio Signal Processing</li>
             </ul>
           </section>
