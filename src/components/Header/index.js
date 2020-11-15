@@ -6,10 +6,18 @@ export class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { isAnimation : true };
+    this.state = {
+      loaded      : false,
+      isAnimation : true
+    };
 
+    this.onLoad         = this.onLoad.bind(this);
     this.onMouseEnter   = this.onMouseEnter.bind(this);
     this.onAnimationEnd = this.onAnimationEnd.bind(this);
+  }
+
+  onLoad() {
+    this.setState({ loaded: true });
   }
 
   onMouseEnter() {
@@ -25,15 +33,18 @@ export class Header extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.isAnimation !== nextState.isAnimation;
+    return this.state.loaded !== nextState.loaded ||
+      this.state.isAnimation !== nextState.isAnimation;
   }
 
   render() {
+    const { loaded } = this.state;
+
     return (
       <header className={Header.CLASS_NAME}>
         <div className="aligner">
-          <h1 onMouseEnter={this.onMouseEnter}>
-            <img src="assets/images/logo-x2.png" alt="Life with Favorites" width="592" />
+          <h1 className={loaded ? '-animation' : ''} hidden={!loaded} onMouseEnter={this.onMouseEnter}>
+            <img src="assets/images/logo-x2.png" alt="Life with Favorites" width="592" onLoad={this.onLoad} />
           </h1>
           {/*
             <svg width="1182" height="312" title="LIFE with FAVORITES" role="img">
