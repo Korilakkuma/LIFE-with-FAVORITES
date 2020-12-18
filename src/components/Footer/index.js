@@ -266,13 +266,18 @@ export class Footer extends React.Component {
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/xmusicjp" target="_blank" rel="noopener noreferrer" className="image-link">
-                <img src="assets/images/icon-twitter.png" alt="Twitter" width="32" height="32" />
+              <a href="https://art-of-life.jp" target="_blank" rel="noopener noreferrer" className="image-link">
+                <img src="https://art-of-life.jp/apple-touch-icon.png" alt="Blog" width="32" height="32" />
               </a>
             </li>
             <li>
-              <a href="https://art-of-life.jp" target="_blank" rel="noopener noreferrer" className="image-link">
-                <img src="https://art-of-life.jp/apple-touch-icon.png" alt="Blog" width="32" height="32" />
+              <a href="https://www.youtube.com/user/rilakkuma3xjapan" target="_blank" rel="noopener noreferrer" className="image-link">
+                <img src="assets/images/icon-youtube.png" alt="YouTube" width="32" height="32" />
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/xmusicjp" target="_blank" rel="noopener noreferrer" className="image-link">
+                <img src="assets/images/icon-twitter.png" alt="Twitter" width="32" height="32" />
               </a>
             </li>
           </ul>
