@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class Header extends React.Component {
+export class Header extends React.PureComponent {
   static CLASS_NAME = 'Header';
 
   constructor(props) {
@@ -30,11 +30,6 @@ export class Header extends React.Component {
     if (this.state.isAnimation) {
       this.setState({ isAnimation : false });
     }
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.loaded !== nextState.loaded ||
-      this.state.isAnimation !== nextState.isAnimation;
   }
 
   render() {
