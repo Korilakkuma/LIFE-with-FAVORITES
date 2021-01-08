@@ -6,19 +6,18 @@ export const Skills = () => {
       <div className="aligner">
         <h1>Skills</h1>
         <section>
-          <h2>MULTIMEDIA</h2>
+          <h2>Advanced</h2>
           <ul className="list-marker -white">
-            <li>Web Music (Web Audio API, WebRTC ...)</li>
-            <li>C/C++, PDP 11/40 Assembly, UNIX V6</li>
+            <li>Web Music (Web Audio API)</li>
             <li>Audio Signal Processing</li>
+            <li>Web Frontend (HTML, CSS, JavaScript)</li>
           </ul>
         </section>
         <section>
-          <h2>Web Frontend</h2>
+          <h2>Intermediate</h2>
           <ul className="list-marker -white">
-            <li>HTML / CSS</li>
-            <li>JavaScript (TypeScript / Node.js)</li>
-            <li>Sketch</li>
+            <li>C/C++, PDP 11/40 Assembly, UNIX V6</li>
+            <li>hls.js (<a href="https://github.com/video-dev/hls.js/graphs/contributors" target="_blank" rel="noopener noreferrer">contributor</a>)</li>
           </ul>
         </section>
       </div>
