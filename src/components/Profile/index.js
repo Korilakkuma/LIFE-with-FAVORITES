@@ -1,8 +1,10 @@
 import React from 'react';
 
+const CLASS_NAME = 'Profile';
+
 export const Profile = () => {
   return (
-    <section className={Profile.CLASS_NAME}>
+    <section className={CLASS_NAME}>
       <div className="aligner">
         <h1>Profile</h1>
         <section>
@@ -47,5 +49,3 @@ export const Profile = () => {
     </section>
   );
 };
-
-Profile.CLASS_NAME = 'Profile';

@@ -1,183 +1,206 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import PropTypes from 'prop-types';
 
-export class Portfolio extends React.PureComponent {
-  static CLASS_NAME = 'Portfolio';
+const CLASS_NAME = 'Portfolio';
 
-  constructor(props) {
-    super(props);
+function useInterval(callback, interval) {
+  const savedCallback = useRef();
 
-    this.state = {
-      currentItem : 0,
-      slide       : 0
-    };
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
 
-    this.items = [
-      {
-        src   : 'assets/images/screenshot-x-sound.png',
-        alt   : 'XSound.app',
-        href  : 'https://xsound.app/',
-        label : 'XSound.app',
-        order : '2'
-      },
-      {
-        src   : 'assets/images/screenshot-xsound.png',
-        alt   : 'XSound',
-        href  : 'https://xsound.jp/',
-        label : 'XSound',
-        order : '3'
-      },
-      {
-        src   : 'assets/images/screenshot-instant-canvas-presentation.png',
-        alt   : 'Instant Canvas Presentation',
-        href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-instant-canvas-presentation/',
-        label : 'Instant Canvas Presentation',
-        order : '4'
-      },
-      {
-        src   : 'assets/images/screenshot-music-v.png',
-        alt   : 'Music V',
-        href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-music-v/',
-        label : 'Music V',
-        order : '5'
-      },
-      {
-        src   : 'assets/images/screenshot-web-sounder.png',
-        alt   : 'WEB SOUNDER',
-        href  : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-web-sounder/',
-        label : 'WEB SOUNDER',
-        order : '1'
-      }
-    ];
+  useEffect(() => {
+    if (interval >= 0) {
+      const timer = window.setInterval(() => {
+        savedCallback.current();
+      }, interval);
 
-    this.imageRef = React.createRef();
+      return () => {
+        window.clearInterval(timer);
+      };
+    }
+  }, [interval]);
+}
 
-    this.timer = null;
+const Nav = (props) => {
+  const { items, currentItem, onClick } = props;
 
-    this.onClickNavButton = this.onClickNavButton.bind(this);
-    this.next             = this.next.bind(this);
+  return (
+    <ol className={`${CLASS_NAME}__carouselNav`}>
+      {items.map((item, index) => {
+        const { href, label } = item;
+
+        // Use `span` instead of `button` for iOS
+        return (
+          <li key={href}>
+            <span
+              role="button"
+              aria-label={label}
+              disabled={index === currentItem}
+              data-index={index}
+              className={index === currentItem ? '-active' : ''}
+              onClick={onClick}
+            />
+          </li>
+        );
+      })}
+    </ol>
+  );
+};
+
+Nav.propTypes = {
+  items      : PropTypes.array.isRequired,
+  currentItem: PropTypes.number.isRequired,
+  onClick    : PropTypes.func
+};
+
+const Items = (props) => {
+  const { items, currentItem, slide } = props;
+
+  const imageRef = useRef(null);
+
+  const orderList = new Array(items.length);
+
+  for (let i = currentItem, j = 0; i < items.length; i++, j++) {
+    orderList[j] = i;
   }
 
-  prev() {
-    const { currentItem, slide } = this.state;
-
-    const prevIndex = (currentItem === 0) ? (this.items.length - 1) : (currentItem - 1);
-
-    this.setState({
-      currentItem : prevIndex,
-      slide       : slide - 1
-    });
+  for (let i = 0, j = (items.length - currentItem); i < currentItem; i++, j++) {
+    orderList[j] = i;
   }
 
-  next() {
-    const { currentItem, slide } = this.state;
+  const offset           = imageRef.current === null ? 400 : imageRef.current.width;  // HACK
+  const slideAmountRight = (slide * -offset) + offset;
+  const slideAmountLeft  = slide * offset;
 
-    const nextIndex = (currentItem === (this.items.length - 1)) ? 0 : (currentItem + 1);
+  const style = {
+    transform: `translateX(${slideAmountRight}px)`,
+    left: `${slideAmountLeft}px`
+  };
 
-    this.setState({
-      currentItem : nextIndex,
-      slide       : slide + 1
-    });
-  }
+  return (
+    <ol style={style}>
+      {items.map((item, index) => {
+        const { src, alt, href } = item;
 
-  setIndex(index) {
-    const { currentItem, slide } = this.state;
+        let order = orderList.indexOf(index) + 2;
 
+        if (order > items.length) {
+          order = order - items.length;
+        }
+
+        return (
+          <li
+            key={href}
+            style={order ? { order } : null}
+            aria-hidden={index !== currentItem}
+            tabIndex={index === currentItem ? null : '-1'}
+          >
+            <a href={href} target="_blank" rel="noopener noreferrer" className="image-link">
+              <img ref={imageRef} src={src} alt={alt} />
+            </a>
+          </li>
+        );
+      })}
+    </ol>
+  );
+};
+
+Items.propTypes = {
+  items      : PropTypes.array.isRequired,
+  currentItem: PropTypes.number.isRequired,
+  slide      : PropTypes.number.isRequired
+};
+
+export const Portfolio = () => {
+  const [currentItem, setCurrentItem] = useState(0);
+  const [slide, setSlide] = useState(0);
+
+  const items = useMemo(() => [
+    {
+      src  : 'assets/images/screenshot-x-sound.png',
+      alt  : 'XSound.app',
+      href : 'https://xsound.app/',
+      label: 'XSound.app',
+      order: '2'
+    },
+    {
+      src  : 'assets/images/screenshot-xsound.png',
+      alt  : 'XSound',
+      href : 'https://xsound.jp/',
+      label: 'XSound',
+      order: '3'
+    },
+    {
+      src  : 'assets/images/screenshot-instant-canvas-presentation.png',
+      alt  : 'Instant Canvas Presentation',
+      href : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-instant-canvas-presentation/',
+      label: 'Instant Canvas Presentation',
+      order: '4'
+    },
+    {
+      src  : 'assets/images/screenshot-music-v.png',
+      alt  : 'Music V',
+      href : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-music-v/',
+      label: 'Music V',
+      order: '5'
+    },
+    {
+      src  : 'assets/images/screenshot-web-sounder.png',
+      alt  : 'WEB SOUNDER',
+      href : 'https://weblike-curtaincall.ssl-lolipop.jp/portfolio-web-sounder/',
+      label: 'WEB SOUNDER',
+      order: '1'
+    }
+  ], []);
+
+  const setIndexCallback = useCallback((index) => {
     if (index === currentItem) {
       return;
     }
 
     const slideIndex = currentItem - index;
 
-    this.setState({
-      currentItem : index,
-      slide       : slide - slideIndex
-    });
-  }
+    setCurrentItem(index);
+    setSlide(slide - slideIndex);
+  }, [currentItem, slide]);
 
-  onClickNavButton(event) {
-    window.clearInterval(this.timer);
-    this.timer = null;
+  const onClickNavButtonCallback = useCallback((event) => {
+    // window.clearInterval(timer);
 
     const index = parseInt(event.currentTarget.getAttribute('data-index'), 10);
-    this.setIndex(index);
-  }
 
-  componentDidMount() {
-    this.timer = window.setInterval(this.next, 3000);
-  }
+    setIndexCallback(index);
+  }, [setIndexCallback]);
 
-  componentWillUnmount() {
-    window.clearInterval(this.timer);
-    this.timer = null;
-  }
+  /*
+  const prevCallback = useCallback(() => {
+    const prevIndex = (currentItem === 0) ? (items.length - 1) : (currentItem - 1);
 
-  renderNav() {
-    const { currentItem } = this.state;
+    setCurrentItem(prevIndex);
+    setSlide(slide - 1);
+  }, [items, currentItem, slide]);
+  */
 
-    // Use `span` instead of `button` for iOS
-    return (
-      <ol className={`${Portfolio.CLASS_NAME}__carouselNav`}>
-        {this.items.map((item, index) => <li key={item.href}><span data-index={index} role="button" onClick={this.onClickNavButton} disabled={index === currentItem} aria-label={item.label} className={index === currentItem ? '-active' : ''}></span></li>)}
-      </ol>
-    );
-  }
+  const nextCallback = useCallback(() => {
+    const nextIndex = (currentItem === (items.length - 1)) ? 0 : (currentItem + 1);
 
-  renderItems() {
-    const { currentItem, slide } = this.state;
+    setCurrentItem(nextIndex);
+    setSlide(slide + 1);
+  }, [items, currentItem, slide]);
 
-    const orderList = new Array(this.items.length);
+  useInterval(nextCallback, 3000);
 
-    for (let i = currentItem, j = 0; i < this.items.length; i++, j++) {
-      orderList[j] = i;
-    }
-
-    for (let i = 0, j = (this.items.length - currentItem); i < currentItem; i++, j++) {
-      orderList[j] = i;
-    }
-
-    const offset           = this.imageRef.current !== null ? this.imageRef.current.width : 400;
-    const slideAmountRight = (slide * -offset) + offset;
-    const slideAmountLeft  = slide * offset;
-
-    const style = {
-      transform: `translateX(${slideAmountRight}px)`,
-      left: `${slideAmountLeft}px`
-    };
-
-    return (
-      <ol style={style}>
-        {this.items.map((item, index) => {
-          const { src, alt, href } = item;
-
-          let order = orderList.indexOf(index) + 2;
-
-          if (order > this.items.length) {
-            order = order - this.items.length;
-          }
-
-          return (
-            <li key={href} style={order ? { order } : null} aria-hidden={index !== currentItem} tabIndex={index === currentItem ? null : '-1'}>
-              <a href={item.href} target="_blank" rel="noopener noreferrer" className="image-link">
-                <img ref={this.imageRef} src={src} alt={alt} />
-              </a>
-            </li>
-          );
-        })}
-      </ol>
-    );
-  }
-
-  render() {
-    return (
-      <section className={Portfolio.CLASS_NAME}>
-        <div className="aligner">
-          <h1>Portfolio</h1>
-          <div className={`${Portfolio.CLASS_NAME}__carousel`}>
-            {this.renderItems()}
-          </div>
-          {this.renderNav()}
+  return (
+    <section className={CLASS_NAME}>
+      <div className="aligner">
+        <h1>Portfolio</h1>
+        <div className={`${CLASS_NAME}__carousel`}>
+          <Items items={items} currentItem={currentItem} slide={slide} />
         </div>
-      </section>
-    );
-  }
-}
+        <Nav items={items} currentItem={currentItem} onClick={onClickNavButtonCallback} />
+      </div>
+    </section>
+  );
+};

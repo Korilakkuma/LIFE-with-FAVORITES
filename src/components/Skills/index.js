@@ -1,8 +1,10 @@
 import React from 'react';
 
+const CLASS_NAME = 'Skills';
+
 export const Skills = () => {
   return (
-    <section className={Skills.CLASS_NAME}>
+    <section className={CLASS_NAME}>
       <div className="aligner">
         <h1>Skills</h1>
         <section>
@@ -24,5 +26,3 @@ export const Skills = () => {
     </section>
   );
 };
-
-Skills.CLASS_NAME = 'Skills';

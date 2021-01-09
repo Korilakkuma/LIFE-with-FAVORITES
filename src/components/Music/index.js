@@ -1,11 +1,13 @@
 import React from 'react';
 
+const CLASS_NAME = 'Music';
+
 export const Music = () => {
   return (
-    <section className={Music.CLASS_NAME}>
+    <section className={CLASS_NAME}>
       <div className="aligner">
         <h1>Music</h1>
-        <ul className={`${Music.CLASS_NAME}__grid`}>
+        <ul className={`${CLASS_NAME}__grid`}>
           {/* <li><iframe key="cjLcjjfJmVw" width="560" height="315" src="https://www.youtube.com/embed/cjLcjjfJmVw" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe></li> */}
           <li><iframe key="Xs_u5Cx5U1I" width="560" height="315" src="https://www.youtube.com/embed/Xs_u5Cx5U1I" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe></li>
           {/* <li><iframe key="bcbDMOw2bGw" width="560" height="315" src="https://www.youtube.com/embed/bcbDMOw2bGw" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe></li> */}
@@ -17,5 +19,3 @@ export const Music = () => {
     </section>
   );
 };
-
-Music.CLASS_NAME = 'Music';
