@@ -5,6 +5,7 @@ import { Portfolio } from './Portfolio';
 import { Skills } from './Skills';
 import { Music } from './Music';
 import { Footer } from './Footer';
+import { ScrollButton } from './ScrollButton';
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
         <Music />
       </main>
       <Footer />
+      <ScrollButton id="app" />
     </React.Fragment>
   );
 };

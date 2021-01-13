@@ -1,0 +1,14 @@
+.ScrollButton {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 9999;
+  display: block;
+  overflow: hidden;
+  text-indent: -9999rem;
+  width: 0;
+  height: 0;
+  border-left: 24px solid transparent;
+  border-right: 24px solid transparent;
+  border-bottom: 36px solid rgba(255, 160, 225, 0.6);
+}

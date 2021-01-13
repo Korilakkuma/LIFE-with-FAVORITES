@@ -4,6 +4,12 @@ body {
   font-size: calc(4 * ((100vw - 320px) / 960) + 12px);
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow: auto;
+  height: 100vh;
+}
+
 body {
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   line-height: 1.5;
