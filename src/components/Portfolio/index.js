@@ -121,14 +121,14 @@ export const Portfolio = () => {
     {
       src  : 'assets/images/screenshot-x-sound.png',
       alt  : 'XSound.app',
-      href : 'https://xsound.app/',
+      href : 'https://xsound.app',
       label: 'XSound.app',
       order: '2'
     },
     {
       src  : 'assets/images/screenshot-xsound.png',
       alt  : 'XSound',
-      href : 'https://xsound.jp/',
+      href : 'https://xsound.jp',
       label: 'XSound',
       order: '3'
     },
